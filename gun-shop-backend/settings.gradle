@@ -1,0 +1,4 @@
+rootProject.name = 'gun-shop-backend'
+include 'catalog-core'
+include 'catalog-web'
+
