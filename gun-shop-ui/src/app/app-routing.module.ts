@@ -2,13 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {ClientsComponent} from './clients/clients.component';
+import {ClientNewComponent} from './clients/client-new/client-new.component';
+import {ClientDetailComponent} from './clients/client-detail/client-detail.component';
+import {GunProviderComponent} from './gun-provider/gun-provider.component';
+import {GunTypeComponent} from './gun-type/gun-type.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'clients', component: ClientsComponent},
-  // {path: 'student/detail/:id', component: StudentDetailComponent},
-  // {path: 'disciplines', component: DisciplinesComponent},
-  // {path: 'discipline-new', component: DisciplineNewComponent},
+  {path: 'clients-new', component: ClientNewComponent},
+  {path: 'client/detail/:id', component: ClientDetailComponent},
+
+  {path: 'gun-providers', component: GunProviderComponent},
+
+  {path: 'gun-types', component: GunTypeComponent},
 ];
 
 @NgModule({

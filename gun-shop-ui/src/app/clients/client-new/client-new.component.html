@@ -1,0 +1,8 @@
+<h2>Add a new Client</h2>
+
+<div>
+  <label>Name:<input #nameInput/></label><br/>
+  <label>Date of Birth:<input #dateInput/></label><br/>
+  <button (click)="addClient(nameInput.value, dateInput.value)">
+    Add</button>
+</div>

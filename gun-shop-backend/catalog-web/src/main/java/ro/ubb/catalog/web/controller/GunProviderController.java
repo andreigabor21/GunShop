@@ -13,6 +13,8 @@ import ro.ubb.catalog.web.converter.GunProviderConverter;
 import ro.ubb.catalog.web.dto.GunProviderDto;
 import ro.ubb.catalog.web.dto.GunProvidersDto;
 
+import java.util.List;
+
 @RestController
 public class GunProviderController {
 
@@ -25,13 +27,20 @@ public class GunProviderController {
     private GunProviderConverter gunProviderConverter;
 
     @RequestMapping(value = "/gun-providers")
-    GunProvidersDto getAllGunProviders() {
+    List<GunProviderDto> getAllGunProviders() {
+        logger.trace("addGunProvider - method entered;");
+        List<GunProviderDto> result = gunProviderConverter.convertModelsToDtos(
+                gunProviderService.getAllGunProviders());
+        logger.trace("addGunProvider - method finished; result = {}", result);
+        return result;
+    }
+    /*GunProvidersDto getAllGunProviders() {
         logger.trace("addGunProvider - method entered;");
         GunProvidersDto result = new GunProvidersDto(gunProviderConverter.convertModelsToDtos(
                 gunProviderService.getAllGunProviders()));
         logger.trace("addGunProvider - method finished; result = {}", result);
         return result;
-    }
+    }*/
 
     @RequestMapping(value = "/gun-providers", method = RequestMethod.POST)
     GunProviderDto addGunProvider(@RequestBody GunProviderDto gunProviderDto){

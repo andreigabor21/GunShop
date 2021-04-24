@@ -29,13 +29,6 @@ public class ClientController {
     @Autowired
     private ClientConverter clientConverter;
 
-//    @RequestMapping(value = "/clients")
-//    ClientsDto getAllClients() {
-//        logger.trace("getAllClients - method entered");
-//        return new ClientsDto(
-//                clientConverter.convertModelsToDtos(
-//                        clientService.getAllClients()));
-//    }
     @RequestMapping(value = "/clients")
     List<ClientDto> getAllClients() {
         logger.trace("getAllClients - method entered");
@@ -87,4 +80,12 @@ public class ClientController {
                 clientConverter.convertModelsToDtos(
                         clientService.getAllClientsBornBefore(date)));
     }
+
+    //    @RequestMapping(value = "/clients")
+//    ClientsDto getAllClients() {
+//        logger.trace("getAllClients - method entered");
+//        return new ClientsDto(
+//                clientConverter.convertModelsToDtos(
+//                        clientService.getAllClients()));
+//    }
 }

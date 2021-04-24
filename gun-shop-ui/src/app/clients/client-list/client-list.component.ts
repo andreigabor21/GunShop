@@ -21,8 +21,7 @@ export class ClientListComponent implements OnInit {
     this.getClients();
   }
 
-  // tslint:disable-next-line:typedef
-  getClients() {
+  getClients(): void {
     this.clientService.getClients()
       .subscribe(
         clients => {
@@ -33,4 +32,11 @@ export class ClientListComponent implements OnInit {
       );
   }
 
+  onSelect(client: Client): void {
+    this.selectedClient = client;
+  }
+
+  goToDetails(): void {
+    this.router.navigate(['/client/detail', this.selectedClient.id]);
+  }
 }

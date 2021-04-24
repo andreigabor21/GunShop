@@ -13,6 +13,8 @@ import ro.ubb.catalog.web.converter.GunTypeConverter;
 import ro.ubb.catalog.web.dto.GunTypeDto;
 import ro.ubb.catalog.web.dto.GunTypesDto;
 
+import java.util.List;
+
 @RestController
 public class GunTypeController {
 
@@ -25,11 +27,10 @@ public class GunTypeController {
     private GunTypeConverter gunTypeConverter;
 
     @RequestMapping(value = "/gun-types")
-    GunTypesDto getAllGunTypes() {
+    List<GunTypeDto> getAllGunTypes() {
         logger.trace("getAllGunTypes - method entered;");
-        GunTypesDto result = new GunTypesDto(
-                gunTypeConverter.convertModelsToDtos(
-                        gunTypeService.getAllGunTypes()));
+        List<GunTypeDto> result = gunTypeConverter.convertModelsToDtos(
+                        gunTypeService.getAllGunTypes());
 
         logger.trace("getAllGunTypes - method finished; result = {}", result);
         return result;

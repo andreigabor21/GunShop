@@ -1,0 +1,13 @@
+<div *ngIf="selectedGunProvider">
+  <h2>
+    {{selectedGunProvider.name | uppercase}} was selected
+  </h2>
+  <button (click)="goToDetails()">View Details</button>
+</div>
+
+<h2>Gun Providers</h2>
+<ol class="clients">
+  <li *ngFor="let gunProvider of gunProviders" (click)="onSelect(gunProvider)">
+    {{gunProvider.name}} -- {{gunProvider.speciality}} -- {{gunProvider.reputation}}
+  </li>
+</ol>
