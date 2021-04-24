@@ -2,14 +2,26 @@
   <h2>Client {{client.name}} details</h2>
   <div>
     <label>Name:</label>
-    <input [(ngModel)]="client.name" placeholder="Name">
+    <input id="name" name="name" [(ngModel)]="client.name"
+           placeholder="Name" required minlength="2" #name="ngModel">
     <br> <br>
     <label>Date of Birth:</label>
     <input [(ngModel)]="client.dateOfBirth" placeholder="Date of birth">
   </div>
+
+  <div *ngIf="name.invalid && (name.dirty || name.touched)">
+    <div *ngIf="name.errors.required">
+      <mat-error>Name is required</mat-error>
+    </div>
+    <div *ngIf="name.errors.minlength">
+      <mat-error>Name must be at least 2 characters long</mat-error>
+    </div>
+  </div>
+
   <div class="example-button-row">
   <button mat-raised-button color="accent" (click)="goBack()">Back</button>
-  <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <button mat-raised-button color="primary" [disabled]="!name.valid"
+          (click)="save()">Save</button>
   <button mat-raised-button color="warn" (click)="delete()">Delete</button>
   </div>
 

@@ -2,7 +2,7 @@
   <h2>
     {{selectedClient.name | uppercase}} was selected
   </h2>
-  <button (click)="goToDetails()">View Details</button>
+  <button mat-flat-button color="primary" (click)="goToDetails()">View Details</button>
 </div>
 
 <mat-selection-list [multiple]="false">
