@@ -17,27 +17,27 @@ export class GunProviderService {
     return this.httpClient.get<GunProvider[]>(this.gunProviderUrl);
   }
 
-  // saveClient(client: Client): Observable<Client>{
-  //   console.log(client);
-  //   return this.httpClient.post<Client>(this.clientsUrl, client);
-  // }
-  //
-  // getClient(id: number): Observable<Client> {
-  //   return this.getClients()
-  //     .pipe(
-  //       map(clients => clients.find(client => client.id === id))
-  //     );
-  // }
-  //
-  // updateClient(client: Client): Observable<Client> {
-  //   const url = `${this.clientsUrl}/${client.id}`;
-  //   return this.httpClient
-  //     .put<Client>(url, client);
-  // }
-  //
-  // deleteClient(client: Client): any {
-  //   const url = `${this.clientsUrl}/${client.id}`;
-  //   return this.httpClient
-  //     .delete(url);
-  // }
+  saveGunProvider(gunProvider: GunProvider): Observable<GunProvider>{
+    console.log(gunProvider);
+    return this.httpClient.post<GunProvider>(this.gunProviderUrl, gunProvider);
+  }
+
+  getGunProvider(id: number): Observable<GunProvider> {
+    return this.getGunProviders()
+      .pipe(
+        map(gunProviders => gunProviders.find(gp => gp.id === id))
+      );
+  }
+
+  updateGunProvider(gunProvider: GunProvider): Observable<GunProvider> {
+    const url = `${this.gunProviderUrl}/${gunProvider.id}`;
+    return this.httpClient
+      .put<GunProvider>(url, gunProvider);
+  }
+
+  deleteGunProvider(gunProvider: GunProvider): any {
+    const url = `${this.gunProviderUrl}/${gunProvider.id}`;
+    return this.httpClient
+      .delete(url);
+  }
 }

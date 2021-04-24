@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Client} from '../../clients/shared/client.model';
-import {ClientService} from '../../clients/shared/client.service';
 import {Router} from '@angular/router';
 import {GunProvider} from '../shared/gun-provider.model';
 import {GunProviderService} from '../shared/gun-provider.service';

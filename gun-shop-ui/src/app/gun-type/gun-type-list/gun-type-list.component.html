@@ -6,7 +6,7 @@
 </div>
 
 <h2>Gun Types</h2>
-<ol class="clients">
+<ol class="list">
   <li *ngFor="let gunType of gunTypes" (click)="onSelect(gunType)">
     {{gunType.name}} -- {{gunType.category}} -- {{gunType.gunProviderId}}
   </li>

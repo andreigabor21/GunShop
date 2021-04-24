@@ -14,6 +14,10 @@ import { GunProviderComponent } from './gun-provider/gun-provider.component';
 import { GunTypeComponent } from './gun-type/gun-type.component';
 import { GunProviderListComponent } from './gun-provider/gun-provider-list/gun-provider-list.component';
 import { GunTypeListComponent } from './gun-type/gun-type-list/gun-type-list.component';
+import { GunProviderDetailComponent } from './gun-provider/gun-provider-detail/gun-provider-detail.component';
+import { GunProviderNewComponent } from './gun-provider/gun-provider-new/gun-provider-new.component';
+import { GunTypeNewComponent } from './gun-type/gun-type-new/gun-type-new.component';
+import { GunTypeDetailComponent } from './gun-type/gun-type-detail/gun-type-detail.component';
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { GunTypeListComponent } from './gun-type/gun-type-list/gun-type-list.com
     GunProviderComponent,
     GunTypeComponent,
     GunProviderListComponent,
-    GunTypeListComponent
+    GunTypeListComponent,
+    GunProviderDetailComponent,
+    GunProviderNewComponent,
+    GunTypeNewComponent,
+    GunTypeDetailComponent
   ],
     imports: [
         BrowserModule,

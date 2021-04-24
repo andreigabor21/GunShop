@@ -1,0 +1,17 @@
+<div *ngIf="gunType">
+  <h2>Client {{gunType.name}} details</h2>
+  <div>
+    <label>Name:</label>
+    {{gunType.name}}
+    <input [(ngModel)]="gunType.name" placeholder="Name">
+    <label>Category:</label>
+    {{gunType.category}}
+    <input [(ngModel)]="gunType.category" placeholder="category">
+    <label>Gun Provider ID:</label>
+    {{gunType.gunProviderId}}
+    <input [(ngModel)]="gunType.gunProviderId" placeholder="Gun Provider Id">
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="delete()">Delete</button>
+</div>
