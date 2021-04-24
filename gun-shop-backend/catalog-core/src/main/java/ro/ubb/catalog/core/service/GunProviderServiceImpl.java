@@ -75,4 +75,12 @@ public class GunProviderServiceImpl implements GunProviderService{
         logger.trace("filterBySpecialityAndReputationGreater - method entered with: {} and {}", speciality, reputation);
         return gunProviderRepository.findBySpecialityEqualsAndReputationGreaterThan(speciality, reputation);
     }
+
+    @Override
+    public List<GunProvider> getGunProvidersFilteredByReputation(int reputation) {
+        logger.trace("getGunProvidersFilteredByReputation - method entered");
+        return gunProviderRepository.findAllByReputation(reputation);
+    }
+
+
 }

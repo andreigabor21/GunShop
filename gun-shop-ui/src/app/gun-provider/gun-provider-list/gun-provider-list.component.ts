@@ -13,6 +13,7 @@ export class GunProviderListComponent implements OnInit {
   errorMessage: string;
   gunProviders: GunProvider[];
   selectedGunProvider: GunProvider;
+  selected = 'None';
 
   constructor(private gunProviderService: GunProviderService,
               private router: Router) { }
@@ -38,5 +39,21 @@ export class GunProviderListComponent implements OnInit {
 
   goToDetails(): void {
     this.router.navigate(['/gun-provider/detail', this.selectedGunProvider.id]);
+  }
+
+  filterByReputation(): void {
+    if (this.selected !== 'None') {
+      this.gunProviderService.filterGunProvidersByReputation(+this.selected)
+        .subscribe(
+          data => {
+            this.gunProviders = data;
+            console.log(data);
+          },
+          error => this.errorMessage = error
+        );
+    }
+    else {
+      this.getGunProviders();
+    }
   }
 }

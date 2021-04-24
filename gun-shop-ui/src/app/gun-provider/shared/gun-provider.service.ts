@@ -40,4 +40,9 @@ export class GunProviderService {
     return this.httpClient
       .delete(url);
   }
+
+  filterGunProvidersByReputation(reputation: number): Observable<GunProvider[]> {
+    const url = `${this.gunProviderUrl}/filter?reputation=${reputation}`;
+    return this.httpClient.get<GunProvider[]>(url);
+  }
 }

@@ -2,13 +2,15 @@
   <h2>Client {{client.name}} details</h2>
   <div>
     <label>Name:</label>
-    {{client.name}}
     <input [(ngModel)]="client.name" placeholder="Name">
+    <br> <br>
     <label>Date of Birth:</label>
-    {{client.dateOfBirth}}
     <input [(ngModel)]="client.dateOfBirth" placeholder="Date of birth">
   </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
-  <button (click)="delete()">Delete</button>
+  <div class="example-button-row">
+  <button mat-raised-button color="accent" (click)="goBack()">Back</button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+  </div>
+
 </div>

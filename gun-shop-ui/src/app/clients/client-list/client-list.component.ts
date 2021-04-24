@@ -39,4 +39,10 @@ export class ClientListComponent implements OnInit {
   goToDetails(): void {
     this.router.navigate(['/client/detail', this.selectedClient.id]);
   }
+
+  sortByName(): void {
+    this.clients.sort((a: Client, b: Client) =>
+      (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1));
+    console.log(this.clients);
+  }
 }

@@ -11,3 +11,17 @@
     {{gunProvider.name}} -- {{gunProvider.speciality}} -- {{gunProvider.reputation}}
   </li>
 </ol>
+
+<mat-form-field appearance="fill">
+  <mat-label>Choose Reputation</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option value="None">None</mat-option>
+    <mat-option value="1">Reputation: 1</mat-option>
+    <mat-option value="2">Reputation: 2</mat-option>
+    <mat-option value="3">Reputation: 3</mat-option>
+    <mat-option value="4">Reputation: 4</mat-option>
+    <mat-option value="5">Reputation: 5</mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<button mat-stroked-button (click)="filterByReputation()">Filter</button>

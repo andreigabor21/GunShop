@@ -23,7 +23,7 @@ export class ClientService {
   //   return this.httpClient.post<Client>(this.clientsUrl, client);
   // }
 
-  saveClient(client: Client): any{
+  saveClient(client: Client): Observable<Client>{
       console.log(client);
       console.log(JSON.stringify(client));
       return this.httpClient.post<Client>(this.clientsUrl, client);
@@ -38,6 +38,13 @@ export class ClientService {
   }
 
   updateClient(client: Client): Observable<Client> {
+    const dob = client.dateOfBirth;
+    console.log(client);
+    const date = new Date(dob);
+    date.setHours(19);
+    const dateJSON = date.toJSON();
+    console.log(dateJSON);
+    client.dateOfBirth = dateJSON;
     const url = `${this.clientsUrl}/${client.id}`;
     return this.httpClient
       .put<Client>(url, client);

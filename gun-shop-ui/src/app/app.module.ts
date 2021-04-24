@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import {MatListModule} from '@angular/material/list';
     MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule, MatLineModule, MatListModule
+    ReactiveFormsModule, MatLineModule, MatListModule, MatSelectModule
   ],
   providers: [ClientService],
   bootstrap: [AppComponent]

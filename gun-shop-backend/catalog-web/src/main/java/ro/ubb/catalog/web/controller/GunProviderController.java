@@ -89,10 +89,19 @@ public class GunProviderController {
     }
 
     //http://localhost:8080/api/gun-providers/filter?speciality=tare&reputation=2
-    @RequestMapping(value = "gun-providers/filter", method = RequestMethod.GET)
-    GunProvidersDto filterBySpecialityAndReputationGreater(@RequestParam("speciality") String speciality,
-                                                           @RequestParam("reputation") int reputation) {
-        return new GunProvidersDto(gunProviderConverter.convertModelsToDtos(
-                gunProviderService.filterBySpecialityAndReputationGreater(speciality, reputation)));
+//    @RequestMapping(value = "gun-providers/filter", method = RequestMethod.GET)
+//    GunProvidersDto filterBySpecialityAndReputationGreater(@RequestParam("speciality") String speciality,
+//                                                           @RequestParam("reputation") int reputation) {
+//        return new GunProvidersDto(gunProviderConverter.convertModelsToDtos(
+//                gunProviderService.filterBySpecialityAndReputationGreater(speciality, reputation)));
+//    }
+
+    @RequestMapping(value = "gun-providers/filter")
+    List<GunProviderDto> filterGunProvidersByReputation(@RequestParam("reputation") int reputation) {
+        logger.trace("filterGunProvidersByReputation - method entered;");
+        List<GunProviderDto> result = gunProviderConverter.convertModelsToDtos(
+                gunProviderService.getGunProvidersFilteredByReputation(reputation));
+        logger.trace("filterGunProvidersByReputation - method finished; result = {}", result);
+        return result;
     }
 }

@@ -5,11 +5,10 @@
   <button (click)="goToDetails()">View Details</button>
 </div>
 
-<h2>Clients</h2>
-<ol class="clients">
-  <li *ngFor="let client of clients" (click)="onSelect(client)">
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let client of clients" (click)="onSelect(client)">
     {{client.name}} -- {{client.dateOfBirth}}
-  </li>
-</ol>
+  </mat-list-option>
+</mat-selection-list>
 
-
+<button mat-button color="primary" (click)="sortByName()">Sort by name</button>

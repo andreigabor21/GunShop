@@ -10,4 +10,6 @@ public interface GunProviderRepository extends Repository<GunProvider, Long> {
 
     //speciality and reputation greater than
     List<GunProvider> findBySpecialityEqualsAndReputationGreaterThan(String speciality, int reputation);
+
+    List<GunProvider> findAllByReputation(int reputation);
 }
