@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Client} from '../shared/client.model';
 import {ClientService} from '../shared/client.service';
 import {Router} from '@angular/router';
+import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-client-new',
@@ -10,16 +11,22 @@ import {Router} from '@angular/router';
 })
 export class ClientNewComponent implements OnInit {
 
-  constructor(private clientService: ClientService,
+  constructor(private formBuilder: FormBuilder,
+              private clientService: ClientService,
               private router: Router) { }
+
+  clientForm = this.formBuilder.group({
+    name: '',
+    dateOfBirth: '',
+  });
 
   ngOnInit(): void {
   }
 
-  addClient(name: string, dob: string): void {
-    const dateOfBirth = dob.split('-').map(x => +x);
-    const client: Client = {name, dateOfBirth} as Client;
-    this.clientService.saveClient(client)
+  onFormSubmit(): void {
+    this.clientService.saveClient(this.clientForm.value)
       .subscribe(() => this.router.navigateByUrl('/clients'));
+    this.clientForm.reset();
   }
+
 }

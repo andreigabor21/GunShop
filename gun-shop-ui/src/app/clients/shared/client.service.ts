@@ -18,10 +18,17 @@ export class ClientService {
     return this.httpClient.get<Client[]>(this.clientsUrl);
   }
 
-  saveClient(client: Client): Observable<Client>{
-    console.log(client);
-    return this.httpClient.post<Client>(this.clientsUrl, client);
-  }
+  // saveClient(client: Client): Observable<Client>{
+  //   console.log(client);
+  //   return this.httpClient.post<Client>(this.clientsUrl, client);
+  // }
+
+  saveClient(client: Client): any{
+      console.log(client);
+      console.log(JSON.stringify(client));
+      return this.httpClient.post<Client>(this.clientsUrl, client);
+    }
+
 
   getClient(id: number): Observable<Client> {
     return this.getClients()

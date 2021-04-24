@@ -1,8 +1,18 @@
 <h2>Add a new Client</h2>
 
-<div>
-  <label>Name:<input #nameInput/></label><br/>
-  <label>Date of Birth:<input #dateInput/></label><br/>
-  <button (click)="addClient(nameInput.value, dateInput.value)">
-    Add</button>
-</div>
+<form [formGroup]="clientForm" (ngSubmit)="onFormSubmit()">
+  <mat-form-field>
+    <mat-label>Client Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <mat-label>Date of Birth</mat-label>
+    <input matInput [matDatepicker]="dob" formControlName="dateOfBirth">
+    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+    <mat-datepicker #dob></mat-datepicker>
+  </mat-form-field>
+
+  <br/><br/>
+  <button mat-raised-button>Submit</button>
+</form>

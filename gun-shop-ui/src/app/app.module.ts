@@ -9,7 +9,7 @@ import {ClientService} from './clients/shared/client.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { GunProviderComponent } from './gun-provider/gun-provider.component';
 import { GunTypeComponent } from './gun-type/gun-type.component';
 import { GunProviderListComponent } from './gun-provider/gun-provider-list/gun-provider-list.component';
@@ -19,6 +19,12 @@ import { GunProviderNewComponent } from './gun-provider/gun-provider-new/gun-pro
 import { GunTypeNewComponent } from './gun-type/gun-type-new/gun-type-new.component';
 import { GunTypeDetailComponent } from './gun-type/gun-type-detail/gun-type-detail.component';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatLineModule, MatNativeDateModule} from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -36,13 +42,20 @@ import { GunTypeDetailComponent } from './gun-type/gun-type-detail/gun-type-deta
     GunTypeNewComponent,
     GunTypeDetailComponent
   ],
-    imports: [
-        BrowserModule,
-        RouterModule,
-        HttpClientModule,
-        AppRoutingModule,
-        FormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule, MatLineModule, MatListModule
+  ],
   providers: [ClientService],
   bootstrap: [AppComponent]
 })
