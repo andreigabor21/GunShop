@@ -11,3 +11,9 @@
     {{gunType.name}} -- {{gunType.category}} -- {{gunType.gunProviderId}}
   </li>
 </ol>
+
+<mat-form-field>
+    <mat-label>Filter Type</mat-label>
+    <input matInput (ngModelChange)="filterByType()" placeholder="Category"
+           [(ngModel)]="typeFilter">
+</mat-form-field>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GunProvider} from '../../gun-provider/shared/gun-provider.model';
 import {GunProviderService} from '../../gun-provider/shared/gun-provider.service';
 import {Router} from '@angular/router';
@@ -15,6 +15,7 @@ export class GunTypeListComponent implements OnInit {
   errorMessage: string;
   gunTypes: GunType[];
   selectedGunType: GunType;
+  @Input() typeFilter: string;
 
   constructor(private gunTypeService: GunTypeService,
               private router: Router) { }
@@ -40,5 +41,16 @@ export class GunTypeListComponent implements OnInit {
 
   goToDetails(): void {
     this.router.navigate(['/gun-type/detail', this.selectedGunType.id]);
+  }
+
+  filterByType(): void {
+    console.log(this.typeFilter);
+    if (this.typeFilter === '') {
+      this.ngOnInit();
+    } else {
+      this.gunTypes = this.gunTypes.filter(res => {
+        return res.category.toLowerCase().match(this.typeFilter.toLocaleLowerCase());
+      });
+    }
   }
 }

@@ -56,4 +56,15 @@ export class GunProviderListComponent implements OnInit {
       this.getGunProviders();
     }
   }
+
+  sortByName(): void {
+    this.gunProviderService.getGunProvidersSorted()
+      .subscribe(
+        data => {
+          this.gunProviders = data;
+          console.log(data);
+        },
+        error => this.errorMessage = error
+      );
+  }
 }
