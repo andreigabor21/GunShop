@@ -74,10 +74,10 @@ public class ClientController {
                 clientService.getClientById(id));
     }
 
-    @RequestMapping(value = "/clients/filter/{date}")
-    ClientsDto getAllClientsBornBefore(@PathVariable @DateTimeFormat(pattern = "d-M-yyyy") LocalDate date) {
-        return new ClientsDto(
-                clientConverter.convertModelsToDtos(
-                        clientService.getAllClientsBornBefore(date)));
-    }
+//    @RequestMapping(value = "/clients/filter/{date}")
+//    ClientsDto getAllClientsBornBefore(@PathVariable @DateTimeFormat(pattern = "d-M-yyyy") LocalDate date) {
+//        return new ClientsDto(
+//                clientConverter.convertModelsToDtos(
+//                        clientService.getAllClientsBornBefore(date)));
+//    }
 }

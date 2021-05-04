@@ -29,29 +29,29 @@ public class GunType extends BaseEntity<Long> {
     @OneToMany(mappedBy = "gunType",
                 cascade = CascadeType.ALL,
                 fetch = FetchType.EAGER)
-    private Set<ClientGun> clientGunSet = new HashSet<>();
+    private Set<Rental> rentalSet = new HashSet<>();
 
     public Set<Client> getClients() {
         return Collections.unmodifiableSet(
-                clientGunSet.stream()
-                        .map(ClientGun::getClient)
+                rentalSet.stream()
+                        .map(Rental::getClient)
                         .collect(Collectors.toSet())
         );
     }
 
     public void addClient(Client client) {
-        ClientGun clientGun = new ClientGun();
-        clientGun.setClient(client);
-        clientGun.setGunType(this);
-        clientGunSet.add(clientGun);
+        Rental rental = new Rental();
+        rental.setClient(client);
+        rental.setGunType(this);
+        rentalSet.add(rental);
     }
 
     public void addPrice(Client client, Integer price) {
-        ClientGun clientGun = new ClientGun();
-        clientGun.setClient(client);
-        clientGun.setPrice(price);
-        clientGun.setGunType(this);
-        clientGunSet.add(clientGun);
+        Rental rental = new Rental();
+        rental.setClient(client);
+        rental.setPrice(price);
+        rental.setGunType(this);
+        rentalSet.add(rental);
     }
 }
 

@@ -29,7 +29,7 @@ public class GunProviderController {
     @RequestMapping(value = "/gun-providers")
     ResponseEntity<List<GunProviderDto>> getAllGunProviders() {
         logger.trace("addGunProvider - method entered;");
-        List<GunProviderDto> result = gunProviderConverter.convertModelsToDtos(
+        List<GunProviderDto> result = (List) gunProviderConverter.convertModelsToDtos(
                 gunProviderService.getAllGunProviders());
         logger.trace("addGunProvider - method finished; result = {}", result);
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -77,7 +77,7 @@ public class GunProviderController {
     @RequestMapping(value = "gun-providers/sort/name")
     List<GunProviderDto> getGunProvidersSortedByName() {
         logger.trace("getGunProvidersSortedByName - method entered;");
-        List<GunProviderDto> result = gunProviderConverter.convertModelsToDtos(
+        List<GunProviderDto> result = (List)gunProviderConverter.convertModelsToDtos(
                 gunProviderService.getGunProvidersSortedByName());
         return result;
     }
@@ -86,7 +86,7 @@ public class GunProviderController {
     @RequestMapping(value = "gun-providers/filter")
     List<GunProviderDto> filterGunProvidersByReputation(@RequestParam("reputation") int reputation) {
         logger.trace("filterGunProvidersByReputation - method entered;");
-        List<GunProviderDto> result = gunProviderConverter.convertModelsToDtos(
+        List<GunProviderDto> result = (List) gunProviderConverter.convertModelsToDtos(
                 gunProviderService.getGunProvidersFilteredByReputation(reputation));
         logger.trace("filterGunProvidersByReputation - method finished; result = {}", result);
         return result;

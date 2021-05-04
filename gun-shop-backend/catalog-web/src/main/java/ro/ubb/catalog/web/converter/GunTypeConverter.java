@@ -10,7 +10,7 @@ import ro.ubb.catalog.web.dto.GunTypeDto;
 import java.util.Objects;
 
 @Component
-public class GunTypeConverter extends BaseConverter<GunType, GunTypeDto> {
+public class GunTypeConverter extends AbstractConverterBaseEntityConverter<GunType, GunTypeDto> {
 
     @Autowired
     private PlainGunProviderConverter plainGunProviderConverter;

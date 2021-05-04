@@ -13,6 +13,7 @@ import ro.ubb.catalog.web.converter.GunTypeConverter;
 import ro.ubb.catalog.web.dto.GunTypeDto;
 import ro.ubb.catalog.web.dto.GunTypesDto;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -27,9 +28,9 @@ public class GunTypeController {
     private GunTypeConverter gunTypeConverter;
 
     @RequestMapping(value = "/gun-types")
-    ResponseEntity<List<GunTypeDto>> getAllGunTypes() {
+    ResponseEntity<Collection<GunTypeDto>> getAllGunTypes() {
         logger.trace("getAllGunTypes - method entered;");
-        List<GunTypeDto> result = gunTypeConverter.convertModelsToDtos(
+        Collection<GunTypeDto> result = gunTypeConverter.convertModelsToDtos(
                         gunTypeService.getAllGunTypes());
 
         logger.trace("getAllGunTypes - method finished; result = {}", result);
@@ -81,10 +82,10 @@ public class GunTypeController {
         return new ResponseEntity<>(gunTypeDto, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/gun-types/filter/{category}")
-    GunTypesDto filterGunTypesByCategory(@PathVariable Category category) {
-        return new GunTypesDto(
-                gunTypeConverter.convertModelsToDtos(
-                        gunTypeService.filterGunTypesByCategory(category)));
-    }
+//    @RequestMapping(value = "/gun-types/filter/{category}")
+//    GunTypesDto filterGunTypesByCategory(@PathVariable Category category) {
+//        return new GunTypesDto(
+//                gunTypeConverter.convertModelsToDtos(
+//                        gunTypeService.filterGunTypesByCategory(category)));
+//    }
 }

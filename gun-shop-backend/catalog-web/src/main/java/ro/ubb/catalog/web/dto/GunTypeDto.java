@@ -7,11 +7,9 @@ import ro.ubb.catalog.core.model.Category;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@ToString(callSuper = true)
 public class GunTypeDto extends BaseDto{
     private String name;
     private Category category;
     private PlainGunProviderDto plainGunProviderDto;
 
-    //from
 }

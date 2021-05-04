@@ -6,7 +6,7 @@ import ro.ubb.catalog.web.dto.GunProviderDto;
 import ro.ubb.catalog.web.dto.PlainGunProviderDto;
 
 @Component
-public class PlainGunProviderConverter extends BaseConverter<GunProvider, PlainGunProviderDto> {
+public class PlainGunProviderConverter extends AbstractConverterBaseEntityConverter<GunProvider, PlainGunProviderDto> {
     @Override
     public GunProvider convertDtoToModel(PlainGunProviderDto dto) {
         return null;

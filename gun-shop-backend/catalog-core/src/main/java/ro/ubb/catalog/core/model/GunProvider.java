@@ -24,6 +24,8 @@ public class GunProvider extends BaseEntity<Long> {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "gunprovider_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<GunType> gunTypes = new ArrayList<>();
 
     public void addGunType(GunType gunType){
