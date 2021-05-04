@@ -1,10 +1,3 @@
-ro/ubb/catalog/core/config/CacheConfig.java
- ro.ubb.catalog.core.config.CacheConfig
- ro.ubb.catalog.core.config.CacheConfig$CustomRemovalListener
-ro/ubb/catalog/core/model/BaseEntity.java
- ro.ubb.catalog.core.model.BaseEntity
-ro/ubb/catalog/core/config/JPAConfig.java
- ro.ubb.catalog.core.config.JPAConfig
 ro/ubb/catalog/core/model/validators/GunProviderValidator.java
  ro.ubb.catalog.core.model.validators.GunProviderValidator
 ro/ubb/catalog/core/repository/ClientRepository.java
@@ -19,41 +12,53 @@ ro/ubb/catalog/core/service/ClientService.java
  ro.ubb.catalog.core.service.ClientService
 ro/ubb/catalog/core/model/GunProvider.java
  ro.ubb.catalog.core.model.GunProvider
+ ro.ubb.catalog.core.model.GunProvider$GunProviderBuilder
 ro/ubb/catalog/core/model/Rental.java
  ro.ubb.catalog.core.model.Rental
 ro/ubb/catalog/core/repository/GunTypeRepository.java
  ro.ubb.catalog.core.repository.GunTypeRepository
+ro/ubb/catalog/core/config/CacheConfig.java
+ ro.ubb.catalog.core.config.CacheConfig
+ ro.ubb.catalog.core.config.CacheConfig$CustomRemovalListener
 ro/ubb/catalog/core/model/validators/GunTypeValidator.java
  ro.ubb.catalog.core.model.validators.GunTypeValidator
 ro/ubb/catalog/core/model/Client.java
  ro.ubb.catalog.core.model.Client
+ ro.ubb.catalog.core.model.Client$ClientBuilder
 ro/ubb/catalog/core/utils/Pair.java
  ro.ubb.catalog.core.utils.Pair
 ro/ubb/catalog/core/model/exceptions/ValidatorException.java
  ro.ubb.catalog.core.model.exceptions.ValidatorException
 ro/ubb/catalog/core/repository/RentalRepository.java
  ro.ubb.catalog.core.repository.RentalRepository
+ro/ubb/catalog/core/model/Address.java
+ ro.ubb.catalog.core.model.Address
+ ro.ubb.catalog.core.model.Address$AddressBuilder
 ro/ubb/catalog/core/repository/Repository.java
  ro.ubb.catalog.core.repository.Repository
 ro/ubb/catalog/core/service/ClientServiceImpl.java
  ro.ubb.catalog.core.service.ClientServiceImpl
-ro/ubb/catalog/core/model/GunType.java
- ro.ubb.catalog.core.model.GunType
-ro/ubb/catalog/core/service/RentalService.java
- ro.ubb.catalog.core.service.RentalService
+ro/ubb/catalog/core/service/GunProviderServiceImpl.java
+ ro.ubb.catalog.core.service.GunProviderServiceImpl
+ro/ubb/catalog/core/service/GunTypeServiceImpl.java
+ ro.ubb.catalog.core.service.GunTypeServiceImpl
 ro/ubb/catalog/core/service/RentalServiceImpl.java
  ro.ubb.catalog.core.service.RentalServiceImpl
 ro/ubb/catalog/core/model/Category.java
  ro.ubb.catalog.core.model.Category
 ro/ubb/catalog/core/model/validators/RentalValidator.java
  ro.ubb.catalog.core.model.validators.RentalValidator
-ro/ubb/catalog/core/model/exceptions/GunShopException.java
- ro.ubb.catalog.core.model.exceptions.GunShopException
-ro/ubb/catalog/core/service/GunProviderServiceImpl.java
- ro.ubb.catalog.core.service.GunProviderServiceImpl
-ro/ubb/catalog/core/service/GunTypeServiceImpl.java
- ro.ubb.catalog.core.service.GunTypeServiceImpl
 ro/ubb/catalog/core/service/GunProviderService.java
  ro.ubb.catalog.core.service.GunProviderService
+ro/ubb/catalog/core/service/RentalService.java
+ ro.ubb.catalog.core.service.RentalService
+ro/ubb/catalog/core/model/exceptions/GunShopException.java
+ ro.ubb.catalog.core.model.exceptions.GunShopException
 ro/ubb/catalog/core/repository/GunProviderRepository.java
  ro.ubb.catalog.core.repository.GunProviderRepository
+ro/ubb/catalog/core/config/JPAConfig.java
+ ro.ubb.catalog.core.config.JPAConfig
+ro/ubb/catalog/core/model/BaseEntity.java
+ ro.ubb.catalog.core.model.BaseEntity
+ro/ubb/catalog/core/model/GunType.java
+ ro.ubb.catalog.core.model.GunType

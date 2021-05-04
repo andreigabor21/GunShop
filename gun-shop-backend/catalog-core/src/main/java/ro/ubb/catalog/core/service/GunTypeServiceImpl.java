@@ -39,9 +39,9 @@ public class GunTypeServiceImpl implements GunTypeService {
     public GunType saveGunType(GunType gunType){
         logger.trace("addGunType - method entered; gunType = {}", gunType);
         validator.validate(gunType);
-        if(!gunProviderRepository.existsById(gunType.getGunProviderID())) {
-            throw new GunShopException("No Client with this ID!");
-        }
+//        if(!gunProviderRepository.existsById(gunType.getGunProviderID())) {
+//            throw new GunShopException("No Client with this ID!");
+//        }
         GunType save = gunTypeRepository.save(gunType);
         logger.trace("addGunType - method finished; gunType = {}", gunType);
         return save;
@@ -62,7 +62,7 @@ public class GunTypeServiceImpl implements GunTypeService {
         GunType gunTypeUpdate = gunTypeRepository.findById(gunType.getId()).orElseThrow();
         gunTypeUpdate.setName(gunType.getName());
         gunTypeUpdate.setCategory(gunType.getCategory());
-        gunTypeUpdate.setGunProviderID(gunType.getGunProviderID());
+//        gunTypeUpdate.setGunProviderID(gunType.getGunProviderID());
         logger.trace("updateGunType - method finished; gunTypeUpdate = {}", gunTypeUpdate);
         return gunType;
     }

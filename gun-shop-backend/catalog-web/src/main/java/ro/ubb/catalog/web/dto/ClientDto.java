@@ -1,6 +1,7 @@
 package ro.ubb.catalog.web.dto;
 
 import lombok.*;
+import ro.ubb.catalog.core.model.Address;
 
 import java.time.LocalDate;
 
@@ -13,4 +14,5 @@ public class ClientDto extends BaseDto{
 
     private String name;
     private LocalDate dateOfBirth;
+    private Address address;
 }

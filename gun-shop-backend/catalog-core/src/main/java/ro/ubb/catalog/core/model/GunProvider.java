@@ -10,9 +10,12 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @Data
 @ToString(callSuper = true)
+@Builder
 public class GunProvider extends BaseEntity<Long> {
 
     private String name;
+
     private String speciality;
+
     private int reputation;
 }

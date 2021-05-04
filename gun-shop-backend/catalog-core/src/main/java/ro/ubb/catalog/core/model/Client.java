@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.*;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.time.LocalDate;
 
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 @ToString(callSuper = true)
+@Builder
 public class Client extends BaseEntity<Long> {
 
     private String name;
@@ -24,4 +26,7 @@ public class Client extends BaseEntity<Long> {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate dateOfBirth;
+
+    @Embedded
+    private Address address;
 }

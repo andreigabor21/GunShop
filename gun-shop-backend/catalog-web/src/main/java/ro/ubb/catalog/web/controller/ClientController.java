@@ -80,12 +80,4 @@ public class ClientController {
                 clientConverter.convertModelsToDtos(
                         clientService.getAllClientsBornBefore(date)));
     }
-
-    //    @RequestMapping(value = "/clients")
-//    ClientsDto getAllClients() {
-//        logger.trace("getAllClients - method entered");
-//        return new ClientsDto(
-//                clientConverter.convertModelsToDtos(
-//                        clientService.getAllClients()));
-//    }
 }

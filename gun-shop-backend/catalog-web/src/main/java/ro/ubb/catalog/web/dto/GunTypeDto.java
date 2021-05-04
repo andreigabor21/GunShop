@@ -12,5 +12,5 @@ public class GunTypeDto extends BaseDto{
 
     private String name;
     private Category category;
-    private long gunProviderId;
+    private GunProviderDto gunProviderDto;
 }

@@ -54,6 +54,7 @@ public class ClientServiceImpl implements ClientService {
         Client updateClient = clientRepository.findById(client.getId()).orElseThrow();
         updateClient.setName(client.getName());
         updateClient.setDateOfBirth(client.getDateOfBirth());
+        updateClient.setAddress(client.getAddress());
         logger.trace("updateClient - method finished; client = {}", updateClient);
         return client;
     }

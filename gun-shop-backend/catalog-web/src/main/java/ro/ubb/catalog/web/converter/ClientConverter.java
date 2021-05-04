@@ -12,12 +12,15 @@ public class ClientConverter extends BaseConverter<Client, ClientDto>{
         model.setId(dto.getId());
         model.setName(dto.getName());
         model.setDateOfBirth(dto.getDateOfBirth());
+        model.setAddress(dto.getAddress());
         return model;
     }
 
     @Override
     public ClientDto convertModelToDto(Client client) {
-        ClientDto dto = new ClientDto(client.getName(), client.getDateOfBirth());
+        ClientDto dto = new ClientDto(client.getName(),
+                                    client.getDateOfBirth(),
+                                    client.getAddress());
         dto.setId(client.getId());
         return dto;
     }

@@ -24,6 +24,7 @@ export class ClientNewComponent implements OnInit {
   }
 
   onFormSubmit(): void {
+    console.log(this.clientForm.value);
     this.clientService.saveClient(this.clientForm.value)
       .subscribe(() => this.router.navigateByUrl('/clients'));
     this.clientForm.reset();
