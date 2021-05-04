@@ -7,11 +7,13 @@ import ro.ubb.catalog.core.model.GunType;
 import ro.ubb.catalog.web.dto.GunProviderDto;
 import ro.ubb.catalog.web.dto.GunTypeDto;
 
+import java.util.Objects;
+
 @Component
 public class GunTypeConverter extends BaseConverter<GunType, GunTypeDto> {
 
     @Autowired
-    private GunProviderConverter gunProviderConverter;
+    private PlainGunProviderConverter plainGunProviderConverter;
 
     @Override
     public GunType convertDtoToModel(GunTypeDto dto) {
@@ -19,21 +21,25 @@ public class GunTypeConverter extends BaseConverter<GunType, GunTypeDto> {
         model.setId(dto.getId());
         model.setName(dto.getName());
         model.setCategory(dto.getCategory());
-
-        GunProviderDto gunProviderDto = dto.getGunProviderDto();
-        GunProvider gunProvider = gunProviderConverter.convertDtoToModel(gunProviderDto);
-
-        model.setGunProvider(gunProvider);
         return model;
     }
 
     @Override
     public GunTypeDto convertModelToDto(GunType gunType) {
-        GunTypeDto dto = new GunTypeDto(gunType.getName(),
-                                gunType.getCategory(),
-                                gunProviderConverter
-                                        .convertModelToDto(gunType.getGunProvider()));
-        dto.setId(gunType.getId());
-        return dto;
+        GunTypeDto gunTypeDto = new GunTypeDto();
+        gunTypeDto.setId(gunType.getId());
+        gunTypeDto.setName(gunType.getName());
+        gunTypeDto.setCategory(gunType.getCategory());
+        if(Objects.nonNull(gunType.getGunProvider())){
+            gunTypeDto.setPlainGunProviderDto(
+                    plainGunProviderConverter.convertModelToDto(gunType.getGunProvider()));
+        }
+        return gunTypeDto;
+//        GunTypeDto dto = new GunTypeDto(gunType.getName(),
+//                                gunType.getCategory(),
+//                                gunProviderConverter
+//                                        .convertModelToDto(gunType.getGunProvider()));
+//        dto.setId(gunType.getId());
+
     }
 }

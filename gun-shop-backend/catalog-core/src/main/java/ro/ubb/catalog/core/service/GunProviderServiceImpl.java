@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.ubb.catalog.core.model.GunProvider;
+import ro.ubb.catalog.core.model.GunType;
+import ro.ubb.catalog.core.model.exceptions.GunShopException;
 import ro.ubb.catalog.core.model.validators.GunProviderValidator;
 import ro.ubb.catalog.core.repository.GunProviderRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class GunProviderServiceImpl implements GunProviderService{
@@ -22,6 +25,9 @@ public class GunProviderServiceImpl implements GunProviderService{
 
     @Autowired
     private GunProviderRepository gunProviderRepository;
+
+    @Autowired
+    private GunTypeService gunTypeService;
 
     @Override
     public List<GunProvider> getAllGunProviders() {
@@ -65,6 +71,28 @@ public class GunProviderServiceImpl implements GunProviderService{
     }
 
     @Override
+    @Transactional
+    public GunProvider addGunToProvider(Long providerId, Long gunId) {
+        GunProvider gunProvider = getGunProviderById(providerId);
+        GunType gunType = gunTypeService.getGunTypeById(gunId);
+        if(Objects.nonNull(gunType.getGunProvider())){
+            throw new GunShopException("Provider already assigned");
+        }
+        gunProvider.addGunType(gunType);
+        gunType.setGunProvider(gunProvider);
+        return gunProvider;
+    }
+
+    @Override
+    @Transactional
+    public GunProvider removeGunFromProvider(Long providerId, Long gunId) {
+        GunProvider gunProvider = getGunProviderById(providerId);
+        GunType gunType = gunTypeService.getGunTypeById(gunId);
+        gunProvider.removeGunType(gunType);
+        return gunProvider;
+    }
+
+    @Override
     public List<GunProvider> getGunProvidersSortedByName() {
         logger.trace("getGunProvidersSortedByName - method entered");
         return gunProviderRepository.findByOrderByNameAsc();
@@ -81,6 +109,5 @@ public class GunProviderServiceImpl implements GunProviderService{
         logger.trace("getGunProvidersFilteredByReputation - method entered");
         return gunProviderRepository.findAllByReputation(reputation);
     }
-
 
 }

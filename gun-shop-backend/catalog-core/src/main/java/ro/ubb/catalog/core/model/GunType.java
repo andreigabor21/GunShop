@@ -2,12 +2,10 @@ package ro.ubb.catalog.core.model;
 
 import lombok.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "gun_type")
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +17,7 @@ public class GunType extends BaseEntity<Long> {
 
     private Category category;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     private GunProvider gunProvider;
 }
 

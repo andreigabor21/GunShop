@@ -27,17 +27,17 @@ public class GunTypeController {
     private GunTypeConverter gunTypeConverter;
 
     @RequestMapping(value = "/gun-types")
-    List<GunTypeDto> getAllGunTypes() {
+    ResponseEntity<List<GunTypeDto>> getAllGunTypes() {
         logger.trace("getAllGunTypes - method entered;");
         List<GunTypeDto> result = gunTypeConverter.convertModelsToDtos(
                         gunTypeService.getAllGunTypes());
 
         logger.trace("getAllGunTypes - method finished; result = {}", result);
-        return result;
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/gun-types", method = RequestMethod.POST)
-    GunTypeDto addGunType(@RequestBody GunTypeDto gunTypeDto){
+    ResponseEntity<GunTypeDto> addGunType(@RequestBody GunTypeDto gunTypeDto){
         logger.trace("addGunType - method entered; gunTypeDto = {}", gunTypeDto);
         var gunType = gunTypeConverter.convertDtoToModel(gunTypeDto);
         GunType result;
@@ -46,15 +46,14 @@ public class GunTypeController {
         } catch (Exception e) {
             throw new RuntimeException("Could not add");
         }
-
         var resultModel = gunTypeConverter.convertModelToDto(result);
 
         logger.trace("addGunType - method finished; resultModel = {}", resultModel);
-        return resultModel;
+        return new ResponseEntity<>(resultModel, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/gun-types/{id}", method = RequestMethod.PUT)
-    GunTypeDto updateGunType(@PathVariable Long id,
+    ResponseEntity<GunTypeDto> updateGunType(@PathVariable Long id,
                              @RequestBody GunTypeDto dto) {
         logger.trace("updateGunType - method entered; dto = {}", dto);
         dto.setId(id);
@@ -64,7 +63,7 @@ public class GunTypeController {
                 ));
 
         logger.trace("updateGunType - method finished; result = {}", result);
-        return result;
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/gun-types/{id}", method = RequestMethod.DELETE)
@@ -76,9 +75,10 @@ public class GunTypeController {
     }
 
     @RequestMapping(value = "/gun-types/{id}")
-    GunTypeDto getGunTypeById(@PathVariable Long id) {
-        return gunTypeConverter.convertModelToDto(
+    ResponseEntity<GunTypeDto> getGunTypeById(@PathVariable Long id) {
+        GunTypeDto gunTypeDto = gunTypeConverter.convertModelToDto(
                 gunTypeService.getGunTypeById(id));
+        return new ResponseEntity<>(gunTypeDto, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/gun-types/filter/{category}")

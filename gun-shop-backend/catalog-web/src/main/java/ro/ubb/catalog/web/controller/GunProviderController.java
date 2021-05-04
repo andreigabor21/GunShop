@@ -27,23 +27,16 @@ public class GunProviderController {
     private GunProviderConverter gunProviderConverter;
 
     @RequestMapping(value = "/gun-providers")
-    List<GunProviderDto> getAllGunProviders() {
+    ResponseEntity<List<GunProviderDto>> getAllGunProviders() {
         logger.trace("addGunProvider - method entered;");
         List<GunProviderDto> result = gunProviderConverter.convertModelsToDtos(
                 gunProviderService.getAllGunProviders());
         logger.trace("addGunProvider - method finished; result = {}", result);
-        return result;
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    /*GunProvidersDto getAllGunProviders() {
-        logger.trace("addGunProvider - method entered;");
-        GunProvidersDto result = new GunProvidersDto(gunProviderConverter.convertModelsToDtos(
-                gunProviderService.getAllGunProviders()));
-        logger.trace("addGunProvider - method finished; result = {}", result);
-        return result;
-    }*/
 
     @RequestMapping(value = "/gun-providers", method = RequestMethod.POST)
-    GunProviderDto addGunProvider(@RequestBody GunProviderDto gunProviderDto){
+    ResponseEntity<GunProviderDto> addGunProvider(@RequestBody GunProviderDto gunProviderDto){
         logger.trace("addGunProvider - method entered; gunProviderDto = {}", gunProviderDto);
         GunProvider gunProvider = gunProviderConverter.convertDtoToModel(gunProviderDto);
 
@@ -51,11 +44,11 @@ public class GunProviderController {
 
         GunProviderDto resultModel = gunProviderConverter.convertModelToDto(result);
         logger.trace("addGunProvider - method finished; resultModel = {}", resultModel);
-        return resultModel;
+        return new ResponseEntity<>(resultModel, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/gun-providers/{id}", method = RequestMethod.PUT)
-    GunProviderDto updateGunProvider(@PathVariable Long id,
+    ResponseEntity<GunProviderDto> updateGunProvider(@PathVariable Long id,
                                      @RequestBody GunProviderDto dto) {
         logger.trace("updateGunProvider - method entered; dto = {}", dto);
         dto.setId(id);
@@ -64,7 +57,7 @@ public class GunProviderController {
                         gunProviderConverter.convertDtoToModel(dto)
                 ));
         logger.trace("updateGunProvider - method finished; result = {}", result);
-        return result;
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/gun-providers/{id}", method = RequestMethod.DELETE)
@@ -97,5 +90,21 @@ public class GunProviderController {
                 gunProviderService.getGunProvidersFilteredByReputation(reputation));
         logger.trace("filterGunProvidersByReputation - method finished; result = {}", result);
         return result;
+    }
+
+    @PostMapping(value = "gun-providers/{providerId}/guns/{gunTypeId}/add")
+    public ResponseEntity<GunProviderDto> addItem(@PathVariable final Long providerId,
+                                                 @PathVariable final Long gunTypeId){
+        GunProvider gunProvider = gunProviderService.addGunToProvider(providerId, gunTypeId);
+        return new ResponseEntity<>(gunProviderConverter.convertModelToDto(gunProvider),
+                HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "gun-providers/{providerId}/guns/{gunTypeId}/remove")
+    public ResponseEntity<GunProviderDto> removeItemFromCart(@PathVariable final Long providerId,
+                                                      @PathVariable final Long gunTypeId){
+        GunProvider gunProvider = gunProviderService.removeGunFromProvider(providerId, gunTypeId);
+        return new ResponseEntity<>(gunProviderConverter.convertModelToDto(gunProvider),
+                HttpStatus.OK);
     }
 }

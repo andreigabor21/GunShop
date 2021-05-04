@@ -21,4 +21,8 @@ public interface GunProviderService {
     List<GunProvider> filterBySpecialityAndReputationGreater(String speciality, int reputation);
 
     List<GunProvider> getGunProvidersFilteredByReputation(int reputation);
+
+    GunProvider addGunToProvider(Long providerId, Long gunId);
+
+    GunProvider removeGunFromProvider(Long providerId, Long gunId);
 }

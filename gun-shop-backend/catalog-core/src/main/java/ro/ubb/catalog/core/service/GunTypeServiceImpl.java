@@ -59,7 +59,8 @@ public class GunTypeServiceImpl implements GunTypeService {
     public GunType updateGunType(GunType gunType) {
         logger.trace("updateGunType - method entered; gunType = {}", gunType);
         validator.validate(gunType);
-        GunType gunTypeUpdate = gunTypeRepository.findById(gunType.getId()).orElseThrow();
+        GunType gunTypeUpdate = gunTypeRepository.findById(gunType.getId())
+                                                    .orElseThrow();
         gunTypeUpdate.setName(gunType.getName());
         gunTypeUpdate.setCategory(gunType.getCategory());
 //        gunTypeUpdate.setGunProviderID(gunType.getGunProviderID());
