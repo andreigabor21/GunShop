@@ -22,5 +22,9 @@ public interface ClientService {
 
     Set<Rental> getRentals();
 
-    void addRental(Long clientId, Long gunTypeId, Integer price);
+    Rental addRental(Long clientId, Long gunTypeId, Integer price);
+
+    Rental updateRental(Long clientId, Long gunId, Integer price);
+
+    void deleteRental(Long clientId, Long gunTypeId);
 }

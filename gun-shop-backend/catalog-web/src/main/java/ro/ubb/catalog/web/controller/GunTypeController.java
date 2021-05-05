@@ -6,15 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.ubb.catalog.core.model.Category;
 import ro.ubb.catalog.core.model.GunType;
 import ro.ubb.catalog.core.service.GunTypeService;
 import ro.ubb.catalog.web.converter.GunTypeConverter;
 import ro.ubb.catalog.web.dto.GunTypeDto;
-import ro.ubb.catalog.web.dto.GunTypesDto;
 
 import java.util.Collection;
-import java.util.List;
 
 @RestController
 public class GunTypeController {

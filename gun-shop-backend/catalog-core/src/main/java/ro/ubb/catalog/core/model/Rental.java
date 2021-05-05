@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "client_gun")
+@Table(name = "rental")
 @IdClass(ClientGunPK.class)
 @NoArgsConstructor
 @AllArgsConstructor

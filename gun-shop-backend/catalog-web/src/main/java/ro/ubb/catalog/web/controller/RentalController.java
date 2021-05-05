@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.ubb.catalog.core.model.Rental;
 import ro.ubb.catalog.core.service.ClientService;
-import ro.ubb.catalog.web.converter.ClientGunConverter;
-import ro.ubb.catalog.web.dto.ClientGunDto;
+import ro.ubb.catalog.web.converter.RentalConverter;
+import ro.ubb.catalog.web.dto.RentalDto;
 
 import java.util.Set;
 
@@ -22,19 +22,19 @@ public class RentalController {
     private ClientService clientService;
 
     @Autowired
-    private ClientGunConverter converter;
+    private RentalConverter converter;
 
     @RequestMapping(value = "/rentals", method = RequestMethod.GET)
-    public ResponseEntity<Set<ClientGunDto>> getRentals() {
+    public ResponseEntity<Set<RentalDto>> getRentals() {
         Set<Rental> rentals = clientService.getRentals();
         log.trace("fetch rentals: {}", rentals);
 
-        Set<ClientGunDto> clientGunDtos = (Set)converter.convertModelsToDtos(rentals);
-        return new ResponseEntity<>(clientGunDtos, HttpStatus.OK);
+        Set<RentalDto> rentalDtos = (Set)converter.convertModelsToDtos(rentals);
+        return new ResponseEntity<>(rentalDtos, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/rentals", method = RequestMethod.POST)
-    public ResponseEntity<?> addRental(@RequestBody ClientGunDto dto) {
+    public ResponseEntity<?> addRental(@RequestBody RentalDto dto) {
         try {
             clientService.addRental(
                     dto.getClientId(),
@@ -46,17 +46,38 @@ public class RentalController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         log.trace("rental added");
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-//    @RequestMapping(value = "/grades/{studentId}", method = RequestMethod.PUT)
-//    public ResponseEntity<Set<ClientGunDto>> addRental(
-//            @PathVariable final Long studentId,
-//            @RequestBody final Set<StudentDisciplineDto> studentDisciplineDtos) {
-//        log.trace("updateStudentGrades: studentId={}, studentDisciplineDtos={}",
-//                studentId, studentDisciplineDtos);
-//
-//        throw new RuntimeException("not yet implemented");
-//    }
+    @RequestMapping(value = "/rentals/{clientId}/{gunId}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateRental(
+            @PathVariable Long clientId,
+            @PathVariable Long gunId,
+            @RequestBody RentalDto dto) {
+        log.trace("updateRental - method entered with clientId={}, gunId={}, price={}", clientId, gunId, dto.getPrice());
+
+        try {
+            Rental rental = clientService.updateRental(clientId, gunId, dto.getPrice());
+            RentalDto rentalDto = converter.convertModelToDto(rental);
+            log.trace("rental updated");
+            return new ResponseEntity<>(rentalDto, HttpStatus.OK);
+        } catch (Exception e) {
+            log.trace("rental could not be updated");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/rentals/{clientId}/{gunTypeId}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteRental(@PathVariable Long clientId, @PathVariable Long gunTypeId) {
+        log.trace("updateRental - method entered with clientId={}, gunTypeId={}", clientId, gunTypeId);
+        try {
+            clientService.deleteRental(clientId, gunTypeId);
+        } catch (Exception e) {
+            log.trace("rental could not be deleted");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        log.trace("rental deleted");
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

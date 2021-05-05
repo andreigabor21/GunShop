@@ -11,7 +11,6 @@ import ro.ubb.catalog.core.model.GunProvider;
 import ro.ubb.catalog.core.service.GunProviderService;
 import ro.ubb.catalog.web.converter.GunProviderConverter;
 import ro.ubb.catalog.web.dto.GunProviderDto;
-import ro.ubb.catalog.web.dto.GunProvidersDto;
 
 import java.util.List;
 

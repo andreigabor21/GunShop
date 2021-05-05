@@ -2,14 +2,14 @@ package ro.ubb.catalog.web.dto;
 
 import lombok.*;
 
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@ToString(callSuper = true)
-public class RentalDto extends BaseDto{
-
-    private int price;
-    private long clientId;
-    private long gunTypeId;
+@Getter
+@Setter
+@ToString
+@Builder
+public class RentalDto {
+    private Long clientId;
+    private Long gunTypeId;
+    private Integer price;
 }

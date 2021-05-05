@@ -66,14 +66,6 @@ public class ClientServiceImpl implements ClientService {
         return client;
     }
 
-//    @Override
-//    @Transactional
-//    public Optional<Student> updateClientPrices(Long clientId, Map<Long, Integer> prices) {
-//        log.trace("updateStudentGrades: studentId={}, grades={}", studentId, grades);
-//
-//        throw new RuntimeException("not yet implemented");
-//    }
-
     @Override
     public Client getClientById(Long id) {
         logger.trace("getClientById - method entered={}", id);
@@ -102,12 +94,50 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Transactional
-    public void addRental(Long clientId, Long gunTypeId, Integer price) {
+    public Rental addRental(Long clientId, Long gunTypeId, Integer price) {
+        logger.trace("addRental - method entered; clientId={}, gunTypeId={}, price={}", clientId, gunTypeId, price);
         Client client = clientRepository.findById(clientId).orElseThrow();
         GunType gunType = gunTypeRepository.findById(gunTypeId).orElseThrow();
         Rental rental = new Rental(client, gunType, price);
         logger.trace("Adding rental {}", rental);
         clientRepository.findById(client.getId()).orElseThrow()
                             .addGunTypeWithPrice(gunType, price);
+        return rental;
+    }
+
+    @Override
+    @Transactional
+    public Rental updateRental(Long clientId, Long gunTypeId, Integer price) {
+        logger.trace("updateRental - method entered; clientId={}, gunTypeId={}, price={}", clientId, gunTypeId, price);
+        System.out.printf("clientId=%d, gunTypeId=%d, price=%d", clientId, gunTypeId, price);
+        Client client = clientRepository.findById(clientId).orElseThrow();
+        GunType gunType = gunTypeRepository.findById(gunTypeId).orElseThrow();
+        clientRepository.findById(client.getId()).orElseThrow()
+                        .getRentalSet()
+                        .stream()
+                        .filter(rental -> rental.getClient().getId().equals(clientId))
+                        .filter(rental -> rental.getGunType().getId().equals(gunTypeId))
+                        .findFirst()
+                        .orElseThrow(RuntimeException::new)
+                        .setPrice(price);
+        return new Rental(client, gunType, price);
+    }
+
+    @Override
+    @Transactional
+    public void deleteRental(Long clientId, Long gunTypeId) {
+        logger.trace("deleteRental - method entered; clientId = {}, gunTypeId={}", clientId, gunTypeId);
+        Client client = clientRepository.findById(clientId).orElseThrow();
+        Optional<Rental> rentalOptional = client
+                .getRentalSet()
+                .stream()
+                .filter(rental -> rental.getGunType().getId().equals(gunTypeId))
+                .findFirst();
+        rentalOptional.ifPresent(
+                rental -> {
+                    client.getRentalSet().remove(rental);
+                }
+        );
+        logger.trace("deleteClient - method finished");
     }
 }

@@ -4,7 +4,6 @@ package ro.ubb.catalog.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +11,7 @@ import ro.ubb.catalog.core.model.Client;
 import ro.ubb.catalog.core.service.ClientService;
 import ro.ubb.catalog.web.converter.ClientConverter;
 import ro.ubb.catalog.web.dto.ClientDto;
-import ro.ubb.catalog.web.dto.ClientsDto;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
