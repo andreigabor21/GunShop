@@ -3,6 +3,7 @@ package ro.ubb.catalog.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.CachedIntrospectionResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,10 @@ import ro.ubb.catalog.core.service.GunProviderService;
 import ro.ubb.catalog.web.converter.GunProviderConverter;
 import ro.ubb.catalog.web.dto.GunProviderDto;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class GunProviderController {
@@ -28,8 +32,10 @@ public class GunProviderController {
     @RequestMapping(value = "/gun-providers")
     ResponseEntity<List<GunProviderDto>> getAllGunProviders() {
         logger.trace("addGunProvider - method entered;");
-        List<GunProviderDto> result = (List) gunProviderConverter.convertModelsToDtos(
-                gunProviderService.getAllGunProviders());
+        //ArrayList<>(clientConverter.convertModelsToDtos(clients));
+        List<GunProvider> gunProviders = gunProviderService.getAllGunProviders();
+        List<GunProviderDto> result = new ArrayList<>(gunProviderConverter
+                .convertModelsToDtos(gunProviders));
         logger.trace("addGunProvider - method finished; result = {}", result);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
@@ -74,19 +80,19 @@ public class GunProviderController {
     }
 
     @RequestMapping(value = "gun-providers/sort/name")
-    List<GunProviderDto> getGunProvidersSortedByName() {
+    ResponseEntity<List<GunProviderDto>> getGunProvidersSortedByName() {
         logger.trace("getGunProvidersSortedByName - method entered;");
-        List<GunProviderDto> result = (List)gunProviderConverter.convertModelsToDtos(
-                gunProviderService.getGunProvidersSortedByName());
-        return result;
+        List<GunProviderDto> result = new ArrayList<>(gunProviderConverter.convertModelsToDtos(
+                gunProviderService.getGunProvidersSortedByName()));
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 
     @RequestMapping(value = "gun-providers/filter")
     List<GunProviderDto> filterGunProvidersByReputation(@RequestParam("reputation") int reputation) {
         logger.trace("filterGunProvidersByReputation - method entered;");
-        List<GunProviderDto> result = (List) gunProviderConverter.convertModelsToDtos(
-                gunProviderService.getGunProvidersFilteredByReputation(reputation));
+        List<GunProviderDto> result = new ArrayList<>(gunProviderConverter.convertModelsToDtos(
+                gunProviderService.getGunProvidersFilteredByReputation(reputation)));
         logger.trace("filterGunProvidersByReputation - method finished; result = {}", result);
         return result;
     }

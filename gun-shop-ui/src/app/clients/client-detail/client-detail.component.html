@@ -7,6 +7,16 @@
     <br> <br>
     <label>Date of Birth:</label>
     <input [(ngModel)]="client.dateOfBirth" placeholder="Date of birth">
+
+    <h4>Address</h4>
+    <label>City:</label>
+    <input [(ngModel)]="client.address.city" placeholder="City">
+    <br>
+    <label>Street:</label>
+    <input [(ngModel)]="client.address.street" placeholder="Street">
+    <br>
+    <label>Number:</label>
+    <input [(ngModel)]="client.address.number" placeholder="Number">
   </div>
 
   <div *ngIf="name.invalid && (name.dirty || name.touched)">

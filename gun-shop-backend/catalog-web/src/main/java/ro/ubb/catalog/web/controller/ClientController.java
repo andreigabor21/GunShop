@@ -27,10 +27,12 @@ public class ClientController {
     private ClientConverter clientConverter;
 
     @RequestMapping(value = "/clients")
-    List<ClientDto> getAllClients() {
+    ResponseEntity<List<ClientDto>> getAllClients() {
         logger.trace("getAllClients - method entered");
         var clients = clientService.getAllClients();
-        return new ArrayList<>(clientConverter.convertModelsToDtos(clients));
+        var result = new ArrayList<>(clientConverter.convertModelsToDtos(clients));
+//        return new ArrayList<>(clientConverter.convertModelsToDtos(clients));
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/clients", method = RequestMethod.POST)

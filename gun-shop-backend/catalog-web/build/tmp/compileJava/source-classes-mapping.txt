@@ -33,19 +33,19 @@ ro/ubb/catalog/web/dto/RentalDto.java
  ro.ubb.catalog.web.dto.RentalDto$RentalDtoBuilder
 ro/ubb/catalog/web/converter/RentalConverter.java
  ro.ubb.catalog.web.converter.RentalConverter
-ro/ubb/catalog/web/controller/GunProviderController.java
- ro.ubb.catalog.web.controller.GunProviderController
+ro/ubb/catalog/web/controller/RentalController.java
+ ro.ubb.catalog.web.controller.RentalController
 ro/ubb/catalog/web/converter/ClientConverter.java
  ro.ubb.catalog.web.converter.ClientConverter
 ro/ubb/catalog/web/converter/PlainGunProviderConverter.java
  ro.ubb.catalog.web.converter.PlainGunProviderConverter
-ro/ubb/catalog/web/controller/ClientController.java
- ro.ubb.catalog.web.controller.ClientController
-ro/ubb/catalog/web/converter/GunProviderConverter.java
- ro.ubb.catalog.web.converter.GunProviderConverter
-ro/ubb/catalog/web/converter/GunTypeConverter.java
- ro.ubb.catalog.web.converter.GunTypeConverter
 ro/ubb/catalog/web/controller/GunTypeController.java
  ro.ubb.catalog.web.controller.GunTypeController
-ro/ubb/catalog/web/controller/RentalController.java
- ro.ubb.catalog.web.controller.RentalController
+ro/ubb/catalog/web/controller/ClientController.java
+ ro.ubb.catalog.web.controller.ClientController
+ro/ubb/catalog/web/converter/GunTypeConverter.java
+ ro.ubb.catalog.web.converter.GunTypeConverter
+ro/ubb/catalog/web/converter/GunProviderConverter.java
+ ro.ubb.catalog.web.converter.GunProviderConverter
+ro/ubb/catalog/web/controller/GunProviderController.java
+ ro.ubb.catalog.web.controller.GunProviderController

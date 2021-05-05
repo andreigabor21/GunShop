@@ -8,6 +8,7 @@
 <mat-selection-list [multiple]="false">
   <mat-list-option *ngFor="let client of clients" (click)="onSelect(client)">
     {{client.name}} -- {{client.dateOfBirth}}
+    -- Address: {{client.address.city}}, {{client.address.street}}, {{client.address.number}}
   </mat-list-option>
 </mat-selection-list>
 

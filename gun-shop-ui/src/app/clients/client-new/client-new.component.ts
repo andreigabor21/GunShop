@@ -20,12 +20,18 @@ export class ClientNewComponent implements OnInit {
     dateOfBirth: '',
   });
 
+  addressForm = this.formBuilder.group({
+    city: '',
+    street: '',
+    number: ''
+  });
+
   ngOnInit(): void {
   }
 
   onFormSubmit(): void {
     console.log(this.clientForm.value);
-    this.clientService.saveClient(this.clientForm.value)
+    this.clientService.saveClient(this.clientForm.value, this.addressForm.value)
       .subscribe(() => this.router.navigateByUrl('/clients'));
     this.clientForm.reset();
   }

@@ -6,6 +6,7 @@ import ro.ubb.catalog.core.model.GunProvider;
 import ro.ubb.catalog.web.dto.GunProviderDto;
 import ro.ubb.catalog.web.dto.GunTypeDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -31,8 +32,8 @@ public class GunProviderConverter extends AbstractConverterBaseEntityConverter<G
         dto.setName(gunProvider.getName());
         dto.setReputation(gunProvider.getReputation());
         dto.setSpeciality(gunProvider.getSpeciality());
-        dto.setGunTypeDtos((List<GunTypeDto>) gunTypeConverter.convertModelsToDtos(
-                gunProvider.getGunTypes()));
+        dto.setGunTypeDtos(new ArrayList<>(gunTypeConverter.convertModelsToDtos(
+                gunProvider.getGunTypes())));
         return dto;
     }
 }

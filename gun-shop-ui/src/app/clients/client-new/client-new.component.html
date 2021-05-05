@@ -14,6 +14,24 @@
     <mat-datepicker #dob></mat-datepicker>
   </mat-form-field>
 
-  <br/><br/>
+  <form [formGroup]="addressForm">
+    <h3>Address</h3>
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Street</mat-label>
+      <input matInput formControlName="street">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Number</mat-label>
+      <input matInput formControlName="number">
+    </mat-form-field>
+  </form>
+
+  <br>
   <button mat-raised-button [disabled]="!clientForm.valid">Submit</button>
 </form>

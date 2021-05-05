@@ -8,7 +8,7 @@
 <h2>Gun Providers</h2>
 <ol class="list">
   <li *ngFor="let gunProvider of gunProviders" (click)="onSelect(gunProvider)">
-    {{gunProvider.name}} -- {{gunProvider.speciality}} -- {{gunProvider.reputation}}
+    {{gunProvider.name}} -- {{gunProvider.speciality}} -- Reputation: {{gunProvider.reputation}}
   </li>
 </ol>
 

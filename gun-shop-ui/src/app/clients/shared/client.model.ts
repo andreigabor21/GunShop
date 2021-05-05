@@ -1,6 +1,8 @@
+import {Address} from './address.model';
+
 export class Client {
   id: number;
   name: string;
-  // dateOfBirth: number[];
   dateOfBirth: string;
+  address: Address;
 }

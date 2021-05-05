@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Client} from './client.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Address} from './address.model';
 
 // @Injectable({
 //   providedIn: 'root'
@@ -23,9 +24,12 @@ export class ClientService {
   //   return this.httpClient.post<Client>(this.clientsUrl, client);
   // }
 
-  saveClient(client: Client): Observable<Client>{
+  saveClient(client: Client, address: Address): Observable<Client>{
       console.log(client);
       console.log(JSON.stringify(client));
+      console.log(address);
+      client.address = address;
+      console.log(client);
       return this.httpClient.post<Client>(this.clientsUrl, client);
     }
 
