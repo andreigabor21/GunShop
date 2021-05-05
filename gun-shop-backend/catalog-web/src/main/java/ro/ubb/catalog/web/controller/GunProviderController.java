@@ -98,7 +98,7 @@ public class GunProviderController {
     }
 
     @PostMapping(value = "gun-providers/{providerId}/guns/{gunTypeId}/add")
-    public ResponseEntity<GunProviderDto> addItem(@PathVariable final Long providerId,
+    public ResponseEntity<GunProviderDto> addGunToProvider(@PathVariable final Long providerId,
                                                  @PathVariable final Long gunTypeId){
         GunProvider gunProvider = gunProviderService.addGunToProvider(providerId, gunTypeId);
         return new ResponseEntity<>(gunProviderConverter.convertModelToDto(gunProvider),
@@ -106,7 +106,7 @@ public class GunProviderController {
     }
 
     @DeleteMapping(value = "gun-providers/{providerId}/guns/{gunTypeId}/remove")
-    public ResponseEntity<GunProviderDto> removeItemFromCart(@PathVariable final Long providerId,
+    public ResponseEntity<GunProviderDto> removeGunFromProvider(@PathVariable final Long providerId,
                                                       @PathVariable final Long gunTypeId){
         GunProvider gunProvider = gunProviderService.removeGunFromProvider(providerId, gunTypeId);
         return new ResponseEntity<>(gunProviderConverter.convertModelToDto(gunProvider),

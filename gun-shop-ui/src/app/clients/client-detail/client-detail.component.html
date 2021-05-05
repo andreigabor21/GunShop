@@ -31,8 +31,41 @@
   <div class="example-button-row">
   <button mat-raised-button color="accent" (click)="goBack()">Back</button>
   <button mat-raised-button color="primary" [disabled]="!name.valid"
-          (click)="save()">Save</button>
+          (click)="save()">Update</button>
   <button mat-raised-button color="warn" (click)="delete()">Delete</button>
   </div>
 
+  <br> <br>
+  <h2>Rent a Gun</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Choose</mat-label>
+    <mat-select [(ngModel)]="selectedGunType">
+      <mat-option *ngFor="let gunType of gunTypes" [value]="gunType">
+        {{gunType.name}} - {{gunType.category}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button mat-button color="primary"
+          (click)="rent()">Rent</button>
+
 </div>
+
+<!--<mat-form-field appearance="fill">-->
+<!--  <mat-label>Choose Reputation</mat-label>-->
+<!--  <mat-select [(value)]="selected">-->
+<!--    <mat-option value="None">None</mat-option>-->
+<!--    <mat-option value="1">Reputation: 1</mat-option>-->
+<!--    <mat-option value="2">Reputation: 2</mat-option>-->
+<!--    <mat-option value="3">Reputation: 3</mat-option>-->
+<!--    <mat-option value="4">Reputation: 4</mat-option>-->
+<!--    <mat-option value="5">Reputation: 5</mat-option>-->
+<!--  </mat-select>-->
+<!--</mat-form-field>-->
+
+<!--<select name="providers" id="providers" [(ngModel)]="selectedProvider">-->
+<!--  <option *ngFor="let gunProvider of gunProviders" [ngValue]="gunProvider">-->
+<!--    {{gunProvider.name}}-->
+<!--  </option>-->
+<!--</select>-->

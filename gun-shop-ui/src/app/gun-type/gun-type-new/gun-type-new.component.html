@@ -3,7 +3,14 @@
 <div>
   <label>Name:<input #nameInput/></label><br/>
   <label>Category:<input #categoryInput/></label><br/>
-  <label>Gun Provider ID:<input #gunProviderIdInput/></label><br/>
-  <button (click)="addGunType(nameInput.value, categoryInput.value, +gunProviderIdInput.value)">
+<!--  <label>Gun Provider ID:<input #gunProviderIdInput/></label><br/>-->
+  <label for="providers">Provider:</label>
+  <select name="providers" id="providers" [(ngModel)]="selectedProvider">
+    <option *ngFor="let gunProvider of gunProviders" [ngValue]="gunProvider">
+      {{gunProvider.name}}
+    </option>
+  </select>
+  <br>
+  <button (click)="addGunType(nameInput.value, categoryInput.value)">
     Add</button>
 </div>

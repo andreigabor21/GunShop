@@ -4,6 +4,8 @@ import {ClientService} from '../shared/client.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {Location} from '@angular/common';
+import {GunTypeService} from '../../gun-type/shared/gun-type.service';
+import {GunType} from '../../gun-type/shared/gun-type.model';
 
 @Component({
   selector: 'app-client-detail',
@@ -14,7 +16,11 @@ export class ClientDetailComponent implements OnInit {
 
   @Input() client: Client;
 
+  gunTypes: GunType[];
+  selectedGunType: GunType;
+
   constructor(private clientService: ClientService,
+              private gunTypeService: GunTypeService,
               private route: ActivatedRoute,
               private location: Location) { }
 
@@ -22,6 +28,14 @@ export class ClientDetailComponent implements OnInit {
     this.route.params
       .pipe(switchMap((params: Params) => this.clientService.getClient(+params['id'])))
       .subscribe(client => this.client = client);
+    this.gunTypeService.getGunTypes()
+      .subscribe(
+        data => {
+          this.gunTypes = data;
+          console.log(data);
+        },
+        error => console.log(error)
+      );
   }
 
   goBack(): void {
@@ -35,6 +49,13 @@ export class ClientDetailComponent implements OnInit {
 
   delete(): void {
     this.clientService.deleteClient(this.client)
+      .subscribe(() => this.goBack());
+  }
+
+  rent(): void {
+    console.log(this.client);
+    console.log(this.selectedGunType);
+    this.clientService.createRental(this.client, this.selectedGunType)
       .subscribe(() => this.goBack());
   }
 }

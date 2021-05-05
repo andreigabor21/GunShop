@@ -4,6 +4,8 @@ import {Client} from './client.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Address} from './address.model';
+import {GunType} from '../../gun-type/shared/gun-type.model';
+import {Rental} from '../../rental/shared/rental.model';
 
 // @Injectable({
 //   providedIn: 'root'
@@ -12,6 +14,7 @@ import {Address} from './address.model';
 export class ClientService {
 
   private clientsUrl = 'http://localhost:8080/api/clients';
+  private rentalsUrl = 'http://localhost:8080/api/rentals';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -58,5 +61,14 @@ export class ClientService {
     const url = `${this.clientsUrl}/${client.id}`;
     return this.httpClient
       .delete(url);
+  }
+
+  createRental(client: Client, selectedGunType: GunType): any {
+    const clientId = client.id;
+    const gunTypeId = selectedGunType.id;
+    const price = 100;
+    const rental: Rental = {clientId, gunTypeId, price};
+    console.log('rental: ', rental);
+    return this.httpClient.post(this.rentalsUrl, rental);
   }
 }

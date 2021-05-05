@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.ubb.catalog.core.model.GunType;
+import ro.ubb.catalog.core.service.GunProviderService;
 import ro.ubb.catalog.core.service.GunTypeService;
 import ro.ubb.catalog.web.converter.GunTypeConverter;
 import ro.ubb.catalog.web.dto.GunTypeDto;
@@ -20,6 +21,9 @@ public class GunTypeController {
 
     @Autowired
     private GunTypeService gunTypeService;
+
+    @Autowired
+    private GunProviderService gunProviderService;
 
     @Autowired
     private GunTypeConverter gunTypeConverter;
@@ -41,6 +45,9 @@ public class GunTypeController {
         GunType result;
         try {
             result = gunTypeService.saveGunType(gunType);
+            logger.trace("AICI!!! - provider:{} cu ID: {}", gunTypeDto.getGunProvider(), gunTypeDto.getGunProvider().getId());
+            logger.trace("AICII!!!2 - result={} cu ID={}", result, result.getId());
+            gunProviderService.addGunToProvider(gunTypeDto.getGunProvider().getId(), result.getId());
         } catch (Exception e) {
             throw new RuntimeException("Could not add");
         }
@@ -78,6 +85,10 @@ public class GunTypeController {
                 gunTypeService.getGunTypeById(id));
         return new ResponseEntity<>(gunTypeDto, HttpStatus.OK);
     }
+
+
+
+
 
 //    @RequestMapping(value = "/gun-types/filter/{category}")
 //    GunTypesDto filterGunTypesByCategory(@PathVariable Category category) {

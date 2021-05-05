@@ -31,7 +31,7 @@ public class GunTypeConverter extends AbstractConverterBaseEntityConverter<GunTy
         gunTypeDto.setName(gunType.getName());
         gunTypeDto.setCategory(gunType.getCategory());
         if(Objects.nonNull(gunType.getGunProvider())){
-            gunTypeDto.setPlainGunProviderDto(
+            gunTypeDto.setGunProvider(
                     plainGunProviderConverter.convertModelToDto(gunType.getGunProvider()));
         }
         return gunTypeDto;

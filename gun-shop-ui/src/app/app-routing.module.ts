@@ -10,6 +10,7 @@ import {GunProviderDetailComponent} from './gun-provider/gun-provider-detail/gun
 import {GunProviderNewComponent} from './gun-provider/gun-provider-new/gun-provider-new.component';
 import {GunTypeNewComponent} from './gun-type/gun-type-new/gun-type-new.component';
 import {GunTypeDetailComponent} from './gun-type/gun-type-detail/gun-type-detail.component';
+import {RentalComponent} from './rental/rental.component';
 
 const routes: Routes = [
   {path: 'clients', component: ClientsComponent},
@@ -22,7 +23,9 @@ const routes: Routes = [
 
   {path: 'gun-types', component: GunTypeComponent},
   {path: 'gun-type/detail/:id', component: GunTypeDetailComponent},
-  {path: 'gun-types-new', component: GunTypeNewComponent}
+  {path: 'gun-types-new', component: GunTypeNewComponent},
+
+  {path: 'rentals', component: RentalComponent},
 ];
 
 @NgModule({

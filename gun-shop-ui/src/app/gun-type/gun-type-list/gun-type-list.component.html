@@ -8,12 +8,13 @@
 <h2>Gun Types</h2>
 <ol class="list">
   <li *ngFor="let gunType of gunTypes" (click)="onSelect(gunType)">
-    {{gunType.name}} -- {{gunType.category}} -- {{gunType.gunProviderId}}
+    {{gunType.name}} -- {{gunType.category}}
+    <span *ngIf="gunType.gunProvider">-- Provider: {{gunType.gunProvider.name}}</span>
   </li>
 </ol>
 
 <mat-form-field>
-    <mat-label>Filter Type</mat-label>
+    <mat-label>Search by Type</mat-label>
     <input matInput (ngModelChange)="filterByType()" placeholder="Category"
            [(ngModel)]="typeFilter">
 </mat-form-field>

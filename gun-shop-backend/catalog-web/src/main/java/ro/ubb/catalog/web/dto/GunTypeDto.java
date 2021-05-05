@@ -10,6 +10,5 @@ import ro.ubb.catalog.core.model.Category;
 public class GunTypeDto extends BaseDto{
     private String name;
     private Category category;
-    private PlainGunProviderDto plainGunProviderDto;
-
+    private PlainGunProviderDto gunProvider;
 }
