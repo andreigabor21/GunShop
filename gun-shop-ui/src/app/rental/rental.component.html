@@ -4,3 +4,13 @@
     Client ID: {{rental.clientId}} -- Gun ID: {{rental.gunTypeId}} -- Price: {{rental.price}}
   </li>
 </ol>
+
+<br>
+<h3>Statistics</h3>
+<h4>Most rented Gun:</h4>
+  <mat-card *ngIf="mostRentedGun">
+    <span class="material-icons">thumb_up</span>
+  {{mostRentedGun.name}} - {{mostRentedGun.category}} from provider {{mostRentedGun.gunProvider.name}}
+    <span class="material-icons">thumb_up</span>
+  </mat-card>
+

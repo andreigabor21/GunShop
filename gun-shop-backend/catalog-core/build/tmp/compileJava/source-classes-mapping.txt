@@ -45,16 +45,16 @@ ro/ubb/catalog/core/model/Category.java
  ro.ubb.catalog.core.model.Category
 ro/ubb/catalog/core/service/GunProviderService.java
  ro.ubb.catalog.core.service.GunProviderService
-ro/ubb/catalog/core/service/ClientService.java
- ro.ubb.catalog.core.service.ClientService
+ro/ubb/catalog/core/model/Client.java
+ ro.ubb.catalog.core.model.Client
+ ro.ubb.catalog.core.model.Client$ClientBuilder
 ro/ubb/catalog/core/model/Rental.java
  ro.ubb.catalog.core.model.Rental
  ro.ubb.catalog.core.model.Rental$RentalBuilder
 ro/ubb/catalog/core/model/GunType.java
  ro.ubb.catalog.core.model.GunType
  ro.ubb.catalog.core.model.GunType$GunTypeBuilder
-ro/ubb/catalog/core/model/Client.java
- ro.ubb.catalog.core.model.Client
- ro.ubb.catalog.core.model.Client$ClientBuilder
+ro/ubb/catalog/core/service/ClientService.java
+ ro.ubb.catalog.core.service.ClientService
 ro/ubb/catalog/core/service/ClientServiceImpl.java
  ro.ubb.catalog.core.service.ClientServiceImpl

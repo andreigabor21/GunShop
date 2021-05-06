@@ -1,6 +1,7 @@
 package ro.ubb.catalog.core.service;
 
 import ro.ubb.catalog.core.model.Client;
+import ro.ubb.catalog.core.model.GunType;
 import ro.ubb.catalog.core.model.Rental;
 
 import java.time.LocalDate;
@@ -27,4 +28,6 @@ public interface ClientService {
     Rental updateRental(Long clientId, Long gunId, Integer price);
 
     void deleteRental(Long clientId, Long gunTypeId);
+
+    GunType getMostRentedGunType();
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Rental} from './shared/rental.model';
 import {RentalService} from './shared/rental.service';
+import {GunType} from '../gun-type/shared/gun-type.model';
 
 @Component({
   selector: 'app-rental',
@@ -10,12 +11,14 @@ import {RentalService} from './shared/rental.service';
 export class RentalComponent implements OnInit {
 
   rentals: Rental[];
+  mostRentedGun: GunType;
   errorMessage: string;
 
   constructor(private rentalService: RentalService) { }
 
   ngOnInit(): void {
     this.getGunProviders();
+    this.getMostRentedGunType();
   }
 
   getGunProviders(): void {
@@ -23,6 +26,17 @@ export class RentalComponent implements OnInit {
       .subscribe(
         data => {
           this.rentals = data;
+          console.log(data);
+        },
+        error => this.errorMessage = error
+      );
+  }
+
+  getMostRentedGunType(): void {
+    this.rentalService.getMostRentedGun()
+      .subscribe(
+        data => {
+          this.mostRentedGun = data;
           console.log(data);
         },
         error => this.errorMessage = error

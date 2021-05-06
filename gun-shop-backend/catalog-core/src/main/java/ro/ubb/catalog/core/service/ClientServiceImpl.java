@@ -140,4 +140,25 @@ public class ClientServiceImpl implements ClientService {
         );
         logger.trace("deleteClient - method finished");
     }
+
+    @Override
+    public GunType getMostRentedGunType() {
+        logger.trace("getMostRentedGunType - method entered");
+        try {
+            Map<GunType, Integer> count = new HashMap<>();
+            this.getRentals().forEach(rental -> {
+                count.put(rental.getGunType(), count.getOrDefault(rental.getGunType(), 0) + 1);
+            });
+
+            var max = count.entrySet().stream()
+                    .max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1)
+                    .get()
+                    .getKey();
+            GunType result = gunTypeRepository.findById(max.getId()).orElse(null);
+            logger.trace("getMostRentedGunType: result={}", result);
+            return result;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
