@@ -47,5 +47,10 @@ ro/ubb/catalog/web/converter/GunTypeConverter.java
  ro.ubb.catalog.web.converter.GunTypeConverter
 ro/ubb/catalog/web/controller/ClientController.java
  ro.ubb.catalog.web.controller.ClientController
+ro/ubb/catalog/web/converter/FullRentalConverter.java
+ ro.ubb.catalog.web.converter.FullRentalConverter
+ro/ubb/catalog/web/dto/FullRentalDto.java
+ ro.ubb.catalog.web.dto.FullRentalDto
+ ro.ubb.catalog.web.dto.FullRentalDto$FullRentalDtoBuilder
 ro/ubb/catalog/web/controller/RentalController.java
  ro.ubb.catalog.web.controller.RentalController

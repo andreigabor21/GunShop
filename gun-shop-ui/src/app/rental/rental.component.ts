@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Rental} from './shared/rental.model';
 import {RentalService} from './shared/rental.service';
 import {GunType} from '../gun-type/shared/gun-type.model';
+import {FullRental} from './shared/rental-full.model';
 
 @Component({
   selector: 'app-rental',
@@ -10,9 +11,12 @@ import {GunType} from '../gun-type/shared/gun-type.model';
 })
 export class RentalComponent implements OnInit {
 
-  rentals: Rental[];
+  rentals: FullRental[];
   mostRentedGun: GunType;
   errorMessage: string;
+
+  displayedColumns: string[] = ['client-name', 'gun-weight', 'price'];
+  // dataSource = this.rentals;
 
   constructor(private rentalService: RentalService) { }
 

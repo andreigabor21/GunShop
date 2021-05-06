@@ -1,9 +1,37 @@
 <h2>Rentals</h2>
-<ol class="list">
-  <li *ngFor="let rental of rentals">
-    Client ID: {{rental.clientId}} -- Gun ID: {{rental.gunTypeId}} -- Price: {{rental.price}}
-  </li>
-</ol>
+
+<table mat-table [dataSource]="rentals" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="client-name">
+    <th mat-header-cell *matHeaderCellDef> Client  </th>
+    <td mat-cell *matCellDef="let rental"> {{rental.clientName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="gun-weight">
+    <th mat-header-cell *matHeaderCellDef> Gun Type</th>
+    <td mat-cell *matCellDef="let rental"> {{rental.gunTypeName}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price($) </th>
+    <td mat-cell *matCellDef="let rental"> ${{rental.price}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!--<ol class="list">-->
+<!--  <li *ngFor="let rental of rentals">-->
+<!--    Client: {{rental.clientName}} &#45;&#45; Gun: {{rental.gunTypeName}} &#45;&#45; Price: {{rental.price}}-->
+<!--  </li>-->
+<!--</ol>-->
 
 <br>
 <h3>Statistics</h3>

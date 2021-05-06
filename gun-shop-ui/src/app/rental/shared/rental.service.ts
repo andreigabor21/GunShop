@@ -4,6 +4,7 @@ import {GunProvider} from '../../gun-provider/shared/gun-provider.model';
 import {HttpClient} from '@angular/common/http';
 import {Rental} from './rental.model';
 import {GunType} from '../../gun-type/shared/gun-type.model';
+import {FullRental} from './rental-full.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class RentalService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getRentals(): Observable<Rental[]> {
-    return this.httpClient.get<Rental[]>(this.rentalsUrl);
+  getRentals(): Observable<FullRental[]> {
+    return this.httpClient.get<FullRental[]>(this.rentalsUrl);
   }
 
   getMostRentedGun(): Observable<GunType> {
