@@ -11,11 +11,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -38,7 +38,6 @@ public class Client extends BaseEntity<Long> {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Set<Rental> rentalSet = new HashSet<>();
 
     public Set<GunType> getGunTypes() {
@@ -66,5 +65,18 @@ public class Client extends BaseEntity<Long> {
         rental.setPrice(price);
         rental.setClient(this);
         rentalSet.add(rental);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(name, client.name) && Objects.equals(address, client.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, address);
     }
 }

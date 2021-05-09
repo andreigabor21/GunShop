@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "rental")
@@ -18,15 +19,11 @@ public class Rental implements Serializable {
     @Id
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Client client;
 
     @Id
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "guntype_id")
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private GunType gunType;
 
     @Column(name = "price")
@@ -34,8 +31,13 @@ public class Rental implements Serializable {
 
     @Override
     public String toString() {
-        return "ClientGun{" +
-                "price=" + price +
+        return "Rental{" +
+                "client=" + client.getName() +
+                ", gunType=" + gunType.getName() +
+                ", price=" + price +
                 '}';
     }
+
+
+
 }

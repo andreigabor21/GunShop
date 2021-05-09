@@ -84,13 +84,23 @@ public class ClientServiceImpl implements ClientService {
 
     public Set<Rental> getRentals() {  //TODO
         logger.trace("Fetching all rentals");
-        return clientRepository.findAll()
+        Set<Rental> result = clientRepository.findAll()
                 .stream()
                 .map(Client::getRentalSet)
                 .reduce(new HashSet<>(), (a, b) -> {
                     a.addAll(b);
                     return a;
                 });
+        /*List<Rental> result2 = clientRepository.findAll()
+                .stream()
+                .map(Client::getRentalSet)
+                .reduce(new ArrayList<>(), (a, b) -> {
+                    a.addAll(b);
+                    return a;
+                });*/
+
+        logger.trace("FETCHED IN SERVICE: {}", result);
+        return result;
     }
 
     @Transactional

@@ -63,12 +63,12 @@ export class ClientService {
       .delete(url);
   }
 
-  createRental(client: Client, selectedGunType: GunType): any {
+  createRental(client: Client, selectedGunType: GunType): Observable<Rental> {
     const clientId = client.id;
     const gunTypeId = selectedGunType.id;
     const price = 100;
     const rental: Rental = {clientId, gunTypeId, price};
     console.log('rental: ', rental);
-    return this.httpClient.post(this.rentalsUrl, rental);
+    return this.httpClient.post<Rental>(this.rentalsUrl, rental);
   }
 }

@@ -5,12 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "gun_type")
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -52,6 +52,19 @@ public class GunType extends BaseEntity<Long> {
         rental.setPrice(price);
         rental.setGunType(this);
         rentalSet.add(rental);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GunType gunType = (GunType) o;
+        return Objects.equals(name, gunType.name) && Objects.equals(gunProvider, gunType.gunProvider);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, gunProvider);
     }
 }
 

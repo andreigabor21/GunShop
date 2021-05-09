@@ -39,25 +39,26 @@ public class RentalController {
     @RequestMapping(value = "/rentals", method = RequestMethod.GET)
     public ResponseEntity<Set<FullRentalDto>> getRentals() {
         Set<Rental> rentals = clientService.getRentals();
-        log.trace("fetch rentals: {}", rentals);
+        log.trace("!!!fetch rentals: {}", rentals);
         Set<FullRentalDto> rentalDtos = new HashSet<>(fullRentalConverter.convertModelsToDtos(rentals));
 
+        log.trace("SENT: {}", rentalDtos);
         return new ResponseEntity<>(rentalDtos, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/rentals", method = RequestMethod.POST)
     public ResponseEntity<?> addRental(@RequestBody RentalDto dto) {
         try {
-            clientService.addRental(
+            Rental rental = clientService.addRental(
                     dto.getClientId(),
                     dto.getGunTypeId(),
                     dto.getPrice()
             );
+            log.trace("rental added {}", rental);
         } catch (Exception e) {
             log.trace("rental already exists");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        log.trace("rental added");
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 

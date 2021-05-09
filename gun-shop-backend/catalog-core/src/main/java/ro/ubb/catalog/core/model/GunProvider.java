@@ -5,10 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "gun_provider")
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -34,5 +34,18 @@ public class GunProvider extends BaseEntity<Long> {
 
     public void removeGunType(GunType gunType){
         gunTypes.remove(gunType);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GunProvider that = (GunProvider) o;
+        return reputation == that.reputation && Objects.equals(name, that.name) && Objects.equals(speciality, that.speciality);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, speciality, reputation);
     }
 }
