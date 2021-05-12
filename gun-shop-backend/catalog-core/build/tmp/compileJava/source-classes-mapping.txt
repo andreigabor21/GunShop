@@ -23,6 +23,9 @@ ro/ubb/catalog/core/model/exceptions/ValidatorException.java
  ro.ubb.catalog.core.model.exceptions.ValidatorException
 ro/ubb/catalog/core/model/BaseEntity.java
  ro.ubb.catalog.core.model.BaseEntity
+ro/ubb/catalog/core/model/Address.java
+ ro.ubb.catalog.core.model.Address
+ ro.ubb.catalog.core.model.Address$AddressBuilder
 ro/ubb/catalog/core/model/ClientGunPK.java
  ro.ubb.catalog.core.model.ClientGunPK
 ro/ubb/catalog/core/model/validators/GunProviderValidator.java
@@ -33,18 +36,15 @@ ro/ubb/catalog/core/model/validators/ClientValidator.java
  ro.ubb.catalog.core.model.validators.ClientValidator
 ro/ubb/catalog/core/service/GunTypeService.java
  ro.ubb.catalog.core.service.GunTypeService
-ro/ubb/catalog/core/service/GunProviderServiceImpl.java
- ro.ubb.catalog.core.service.GunProviderServiceImpl
-ro/ubb/catalog/core/model/Address.java
- ro.ubb.catalog.core.model.Address
- ro.ubb.catalog.core.model.Address$AddressBuilder
+ro/ubb/catalog/core/service/GunProviderService.java
+ ro.ubb.catalog.core.service.GunProviderService
 ro/ubb/catalog/core/model/GunProvider.java
  ro.ubb.catalog.core.model.GunProvider
  ro.ubb.catalog.core.model.GunProvider$GunProviderBuilder
 ro/ubb/catalog/core/model/validators/GunTypeValidator.java
  ro.ubb.catalog.core.model.validators.GunTypeValidator
-ro/ubb/catalog/core/service/GunProviderService.java
- ro.ubb.catalog.core.service.GunProviderService
+ro/ubb/catalog/core/service/GunProviderServiceImpl.java
+ ro.ubb.catalog.core.service.GunProviderServiceImpl
 ro/ubb/catalog/core/service/ClientService.java
  ro.ubb.catalog.core.service.ClientService
 ro/ubb/catalog/core/model/Rental.java

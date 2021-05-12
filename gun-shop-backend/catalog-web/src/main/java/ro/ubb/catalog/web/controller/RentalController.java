@@ -94,7 +94,7 @@ public class RentalController {
 
     @RequestMapping(value = "/rentals/{clientId}/{gunTypeId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteRental(@PathVariable Long clientId, @PathVariable Long gunTypeId) {
-        log.trace("updateRental - method entered with clientId={}, gunTypeId={}", clientId, gunTypeId);
+        log.trace("deleteRental - method entered with clientId={}, gunTypeId={}", clientId, gunTypeId);
         try {
             clientService.deleteRental(clientId, gunTypeId);
         } catch (Exception e) {

@@ -27,7 +27,7 @@ public class GunType extends BaseEntity<Long> {
 
 
     @OneToMany(mappedBy = "gunType",
-                cascade = CascadeType.ALL,
+                cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
                 fetch = FetchType.EAGER)
     private Set<Rental> rentalSet = new HashSet<>();
 

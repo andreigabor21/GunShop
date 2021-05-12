@@ -31,6 +31,9 @@ ro/ubb/catalog/web/converter/ConverterBaseEntity.java
 ro/ubb/catalog/web/config/WebConfig.java
  ro.ubb.catalog.web.config.WebConfig
  ro.ubb.catalog.web.config.WebConfig$1
+ro/ubb/catalog/web/dto/ClientDto.java
+ ro.ubb.catalog.web.dto.ClientDto
+ ro.ubb.catalog.web.dto.ClientDto$ClientDtoBuilder
 ro/ubb/catalog/web/converter/RentalConverter.java
  ro.ubb.catalog.web.converter.RentalConverter
 ro/ubb/catalog/web/controller/GunProviderController.java
@@ -43,9 +46,6 @@ ro/ubb/catalog/web/controller/ClientController.java
  ro.ubb.catalog.web.controller.ClientController
 ro/ubb/catalog/web/converter/GunProviderConverter.java
  ro.ubb.catalog.web.converter.GunProviderConverter
-ro/ubb/catalog/web/dto/ClientDto.java
- ro.ubb.catalog.web.dto.ClientDto
- ro.ubb.catalog.web.dto.ClientDto$ClientDtoBuilder
 ro/ubb/catalog/web/converter/GunTypeConverter.java
  ro.ubb.catalog.web.converter.GunTypeConverter
 ro/ubb/catalog/web/converter/FullRentalConverter.java

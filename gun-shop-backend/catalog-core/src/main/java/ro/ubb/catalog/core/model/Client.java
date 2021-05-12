@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -35,7 +36,7 @@ public class Client extends BaseEntity<Long> {
 
 
     @OneToMany(mappedBy = "client",
-            cascade = CascadeType.ALL,
+            cascade ={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
             fetch = FetchType.EAGER)
     @ToString.Exclude
     private Set<Rental> rentalSet = new HashSet<>();

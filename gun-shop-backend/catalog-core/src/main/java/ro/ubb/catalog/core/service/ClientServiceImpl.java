@@ -46,8 +46,27 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    @Transactional
     public void deleteClient(Long id) {
-        logger.trace("deleteClient - method entered; client = {}", clientRepository.findById(id));
+        Client client = clientRepository.findById(id).orElseThrow();
+        logger.trace("deleteClient - method entered; client = {}", client);
+
+        logger.trace("deleting the rentals from client");
+        Set<Rental> clientRentalSet = client.getRentalSet();
+        clientRentalSet.removeIf(rental ->
+                rental.getClient().getId().equals(id));
+        client.setRentalSet(clientRentalSet);
+
+        logger.trace("deleting the rentals from gun type");
+        gunTypeRepository.findAll()
+                .forEach(
+                        gunType -> {
+                            Set<Rental> rentalSet = gunType.getRentalSet();
+                            rentalSet.removeIf(rental ->
+                                    rental.getClient().getId().equals(id));
+                            gunType.setRentalSet(rentalSet);
+                        }
+                );
         clientRepository.deleteById(id);
         logger.trace("deleteClient - method finished");
     }
@@ -145,10 +164,25 @@ public class ClientServiceImpl implements ClientService {
                 .findFirst();
         rentalOptional.ifPresent(
                 rental -> {
-                    client.getRentalSet().remove(rental);
+                    Set<Rental> rentalSet = client.getRentalSet();
+                    rentalSet.remove(rental);
+                    client.setRentalSet(rentalSet);
                 }
         );
-        logger.trace("deleteClient - method finished");
+        GunType gunType = gunTypeRepository.findById(gunTypeId).orElseThrow();
+        rentalOptional = gunType
+                .getRentalSet()
+                .stream()
+                .filter(rental -> rental.getClient().getId().equals(clientId))
+                .findFirst();
+        rentalOptional.ifPresent(
+                rental -> {
+                    Set<Rental> rentalSet = gunType.getRentalSet();
+                    rentalSet.remove(rental);
+                    gunType.setRentalSet(rentalSet);
+                }
+        );
+        logger.trace("deleteRental - method finished");
     }
 
     @Override
