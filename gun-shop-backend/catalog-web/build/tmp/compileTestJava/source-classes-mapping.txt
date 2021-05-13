@@ -1,0 +1,2 @@
+ro/ubb/catalog/web/controller/ClientControllerTest.java
+ ro.ubb.catalog.web.controller.ClientControllerTest

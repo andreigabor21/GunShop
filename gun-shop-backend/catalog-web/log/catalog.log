@@ -1,0 +1,71 @@
+2021-05-14T00:24:31,823 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T00:25:48,380 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T00:26:12,958 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T00:33:01,478 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T00:34:14,339 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T00:39:24,130 WARN  [Test worker]: DefaultHandlerExceptionResolver      - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: ro.ubb.catalog.web.dto.ClientDto ro.ubb.catalog.web.controller.ClientController.addClient(ro.ubb.catalog.web.dto.ClientDto) 
+2021-05-14T00:39:55,115 WARN  [Test worker]: DefaultHandlerExceptionResolver      - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: ro.ubb.catalog.web.dto.ClientDto ro.ubb.catalog.web.controller.ClientController.addClient(ro.ubb.catalog.web.dto.ClientDto) 
+2021-05-14T00:41:36,920 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=100), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:41:36,954 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T00:42:09,453 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:42:09,488 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T00:43:10,141 WARN  [Test worker]: DefaultHandlerExceptionResolver      - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: ro.ubb.catalog.web.dto.ClientDto ro.ubb.catalog.web.controller.ClientController.addClient(ro.ubb.catalog.web.dto.ClientDto) 
+2021-05-14T00:43:33,882 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:43:33,914 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T00:51:59,302 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:51:59,333 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:54:12,860 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:54:12,894 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:55:19,573 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:55:19,603 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:55:54,611 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:55:54,635 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:56:14,471 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:56:14,493 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:56:28,241 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:56:28,281 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:56:59,107 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:56:59,133 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T00:58:28,730 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T00:58:28,759 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:01:02,057 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:01:02,078 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:06:10,748 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:06:10,780 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:06:25,310 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:06:25,343 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:08:41,967 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:08:42,009 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:09:57,154 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:09:57,231 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:10:48,710 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+2021-05-14T01:10:48,722 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+2021-05-14T01:11:03,643 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:11:03,669 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:11:03,707 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+2021-05-14T01:11:03,708 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+2021-05-14T01:11:03,746 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:11:03,747 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T01:11:03,767 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T01:11:28,729 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T01:11:54,917 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:11:54,939 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:11:54,974 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+2021-05-14T01:11:54,975 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+2021-05-14T01:11:55,005 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:11:55,006 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T01:11:55,022 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T01:12:06,128 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:12:06,183 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:12:06,255 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+2021-05-14T01:12:06,259 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+2021-05-14T01:12:06,303 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:12:06,304 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T01:12:06,323 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+2021-05-14T01:12:18,124 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:12:18,178 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:12:18,259 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+2021-05-14T01:12:18,261 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+2021-05-14T01:12:18,346 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:12:18,347 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T01:12:18,375 TRACE [Test worker]: ClientController                     - getAllClients - method entered 

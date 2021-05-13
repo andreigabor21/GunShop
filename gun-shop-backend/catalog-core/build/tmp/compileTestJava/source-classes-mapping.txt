@@ -1,0 +1,16 @@
+ro/ubb/catalog/core/service/ClientServiceTest.java
+ ro.ubb.catalog.core.service.ClientServiceTest
+ro/ubb/catalog/core/repository/ClientRepositoryTest.java
+ ro.ubb.catalog.core.repository.ClientRepositoryTest
+ro/ubb/catalog/core/ITConfig.java
+ ro.ubb.catalog.core.ITConfig
+ro/ubb/catalog/core/JPAConfigIT.java
+ ro.ubb.catalog.core.JPAConfigIT
+ro/ubb/catalog/core/repository/GunTypeRepositoryTest.java
+ ro.ubb.catalog.core.repository.GunTypeRepositoryTest
+ro/ubb/catalog/core/service/GunTypeServiceTest.java
+ ro.ubb.catalog.core.service.GunTypeServiceTest
+ro/ubb/catalog/core/repository/GunProviderRepositoryTest.java
+ ro.ubb.catalog.core.repository.GunProviderRepositoryTest
+ro/ubb/catalog/core/service/GunProviderServiceTest.java
+ ro.ubb.catalog.core.service.GunProviderServiceTest

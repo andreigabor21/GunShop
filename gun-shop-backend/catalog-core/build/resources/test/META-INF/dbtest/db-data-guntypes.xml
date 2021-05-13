@@ -1,0 +1,5 @@
+<dataset>
+    <gun_type id="1" name="name1" category="1" />
+    <gun_type id="2" name="name2" category="2" />
+
+</dataset>

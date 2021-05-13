@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ro.ubb.catalog.core.repository.GunTypeRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-13T22:17:58" hostname="DESKTOP-FGTU247" time="0.58">
+  <properties/>
+  <testcase name="update" classname="ro.ubb.catalog.core.repository.GunTypeRepositoryTest" time="0.58"/>
+  <system-out><![CDATA[Hibernate: create table Client (id bigint not null, city varchar(255), number integer not null, street varchar(255), dateOfBirth date, name varchar(255), primary key (id))
+Hibernate: create table gun_provider (id bigint not null, name varchar(255), reputation integer not null, speciality varchar(255), primary key (id))
+Hibernate: create table gun_type (id bigint not null, category integer, name varchar(255), gunProvider_id bigint, primary key (id))
+Hibernate: create table rental (price integer, client_id bigint not null, guntype_id bigint not null, primary key (client_id, guntype_id))
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+Hibernate: alter table gun_type add constraint FK207fl5apnyh0gcw5vitfoul1j foreign key (gunProvider_id) references gun_provider
+Hibernate: alter table rental add constraint FK2tj651mvnbwm3hql3r5x8klpe foreign key (client_id) references Client
+Hibernate: alter table rental add constraint FKrapn2gj5sqpdydqs3pldc54q2 foreign key (guntype_id) references gun_type
+Hibernate: select guntype0_.id as id1_2_0_, guntype0_.category as category2_2_0_, guntype0_.gunProvider_id as gunProvi4_2_0_, guntype0_.name as name3_2_0_, gunprovide1_.id as id1_1_1_, gunprovide1_.name as name2_1_1_, gunprovide1_.reputation as reputati3_1_1_, gunprovide1_.speciality as speciali4_1_1_, guntypes2_.gunprovider_id as gunprovi4_2_2_, guntypes2_.id as id1_2_2_, guntypes2_.id as id1_2_3_, guntypes2_.category as category2_2_3_, guntypes2_.gunProvider_id as gunProvi4_2_3_, guntypes2_.name as name3_2_3_, rentalset3_.guntype_id as guntype_3_3_4_, rentalset3_.client_id as client_i2_3_4_, rentalset3_.client_id as client_i2_3_5_, rentalset3_.guntype_id as guntype_3_3_5_, rentalset3_.price as price1_3_5_, client4_.id as id1_0_6_, client4_.city as city2_0_6_, client4_.number as number3_0_6_, client4_.street as street4_0_6_, client4_.dateOfBirth as dateOfBi5_0_6_, client4_.name as name6_0_6_ from gun_type guntype0_ left outer join gun_provider gunprovide1_ on guntype0_.gunProvider_id=gunprovide1_.id left outer join gun_type guntypes2_ on gunprovide1_.id=guntypes2_.gunprovider_id left outer join rental rentalset3_ on guntypes2_.id=rentalset3_.guntype_id left outer join Client client4_ on rentalset3_.client_id=client4_.id where guntype0_.id=?
+Hibernate: select rentalset0_.guntype_id as guntype_3_3_0_, rentalset0_.client_id as client_i2_3_0_, rentalset0_.client_id as client_i2_3_1_, rentalset0_.guntype_id as guntype_3_3_1_, rentalset0_.price as price1_3_1_, client1_.id as id1_0_2_, client1_.city as city2_0_2_, client1_.number as number3_0_2_, client1_.street as street4_0_2_, client1_.dateOfBirth as dateOfBi5_0_2_, client1_.name as name6_0_2_ from rental rentalset0_ inner join Client client1_ on rentalset0_.client_id=client1_.id where rentalset0_.guntype_id=?
+Hibernate: update gun_type set category=?, gunProvider_id=?, name=? where id=?
+Hibernate: select guntype0_.id as id1_2_, guntype0_.category as category2_2_, guntype0_.gunProvider_id as gunProvi4_2_, guntype0_.name as name3_2_ from gun_type guntype0_
+Hibernate: select rentalset0_.guntype_id as guntype_3_3_0_, rentalset0_.client_id as client_i2_3_0_, rentalset0_.client_id as client_i2_3_1_, rentalset0_.guntype_id as guntype_3_3_1_, rentalset0_.price as price1_3_1_, client1_.id as id1_0_2_, client1_.city as city2_0_2_, client1_.number as number3_0_2_, client1_.street as street4_0_2_, client1_.dateOfBirth as dateOfBi5_0_2_, client1_.name as name6_0_2_ from rental rentalset0_ inner join Client client1_ on rentalset0_.client_id=client1_.id where rentalset0_.guntype_id=?
+]]></system-out>
+  <system-err><![CDATA[ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console. Set system property 'log4j2.debug' to show Log4j2 internal initialization logging.
+]]></system-err>
+</testsuite>

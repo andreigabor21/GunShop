@@ -1,0 +1,5 @@
+<dataset>
+    <client id="1" name="name1" city="asd" street="asdf" number="20" dateOfBirth="2000-06-06"/>
+    <client id="2" name="name2" city="asd" street="asdf" number="30" dateOfBirth="2000-07-07"/>
+    <client id="3" name="name3" city="asd" street="asdf" number="40" dateOfBirth="2000-08-08"/>
+</dataset>

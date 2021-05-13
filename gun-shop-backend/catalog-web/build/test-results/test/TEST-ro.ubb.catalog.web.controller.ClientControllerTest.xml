@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ro.ubb.catalog.web.controller.ClientControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-05-13T22:12:14" hostname="DESKTOP-FGTU247" time="4.451">
+  <properties/>
+  <testcase name="updateClient" classname="ro.ubb.catalog.web.controller.ClientControllerTest" time="4.196"/>
+  <testcase name="deleteClient" classname="ro.ubb.catalog.web.controller.ClientControllerTest" time="0.069"/>
+  <testcase name="createClient" classname="ro.ubb.catalog.web.controller.ClientControllerTest" time="0.066"/>
+  <testcase name="getClients" classname="ro.ubb.catalog.web.controller.ClientControllerTest" time="0.118"/>
+  <system-out><![CDATA[2021-05-14T01:12:18,124 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:12:18,178 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+2021-05-14T01:12:18,259 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+2021-05-14T01:12:18,261 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+2021-05-14T01:12:18,346 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+2021-05-14T01:12:18,347 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+2021-05-14T01:12:18,375 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+[{"id":1,"name":"c1","dateOfBirth":null,"address":null,"gunTypes":null},{"id":2,"name":"c2","dateOfBirth":null,"address":null,"gunTypes":null}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+ÿ2021-05-14T01:12:18,124 TRACE [Test worker]: ClientController                     - updateClient - method entered; clientDto = ClientDto(super=BaseDto(id=1), name=c1, dateOfBirth=null, address=null, gunTypes=null) 
+è2021-05-14T01:12:18,178 TRACE [Test worker]: ClientController                     - updateClient - method finished; resultedClientDto = null 
+É2021-05-14T01:12:18,259 TRACE [Test worker]: ClientController                     - deleteClient - method entered; client = null 
+u2021-05-14T01:12:18,261 TRACE [Test worker]: ClientController                     - deleteClient - method finished 
+‹2021-05-14T01:12:18,346 TRACE [Test worker]: ClientController                     - addClient - method entered; clientDto = ClientDto(super=BaseDto(id=3), name=newClient, dateOfBirth=null, address=null, gunTypes=null) 
+ñ2021-05-14T01:12:18,347 TRACE [Test worker]: ClientController                     - addClient - method finished; resultModel(type ClientDto) = null 
+u2021-05-14T01:12:18,375 TRACE [Test worker]: ClientController                     - getAllClients - method entered 
+ë[{"id":1,"name":"c1","dateOfBirth":null,"address":null,"gunTypes":null},{"id":2,"name":"c2","dateOfBirth":null,"address":null,"gunTypes":null}]
